@@ -1,4 +1,4 @@
-# 90-second technical demo outline (Task 4 backend only)
+# 90-second technical demo outline (backend only)
 
 1. **0–15s:** Introduce fictional *Asteria Hospitality Studio*; show synthetic DOCX/PDF/XLSX hotel material records and their ingestion status `ready`.
 2. **15–35s:** As `aster-procurement`, ask about approved fire-documented upholstery, suppliers and quoted prices; show `/knowledge/search` evidence and `/knowledge/ask` (only if it verifies).

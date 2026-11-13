@@ -6,7 +6,7 @@ The S3 patch must first be installed using `python apply_release_kit.py` from th
 
 ```cmd
 cd /d F:\Github\enterprise-knowledge-intelligence\backend
-python -m pip install -r requirements-s3.txt
+python -m pip install -r requirements.txt
 python -m py_compile app\routes\documents.py app\services\ingestion.py app\services\object_storage.py
 python -m pytest -q
 cd ..\frontend

@@ -1,2 +1,0 @@
-# Optional S3 document storage (install in the existing docmind_env)
-boto3>=1.35,<2

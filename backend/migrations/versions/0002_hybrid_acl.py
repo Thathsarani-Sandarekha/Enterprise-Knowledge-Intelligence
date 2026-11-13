@@ -1,5 +1,4 @@
-"""Role grants and indexed full-text retrieval for Task 4.
-
+"""Role grants and indexed full-text retrieval.
 Revision ID: 0002_hybrid_acl
 Revises: 0001_documents_chunks
 """
@@ -22,7 +21,7 @@ def upgrade():
         sa.UniqueConstraint('document_id', 'role', name='uq_document_grant_role'),
     )
     op.create_index('ix_document_grants_tenant_role', 'document_grants', ['tenant_id', 'role'])
-    # Existing Task 3 demo documents are made visible to all fictional team roles.
+    
     # Review these grants before ever migrating private/real-world documents.
     op.execute("""
     INSERT INTO document_grants (id, tenant_id, document_id, role)

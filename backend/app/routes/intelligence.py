@@ -1,4 +1,4 @@
-"""Task 4 hybrid retrieval and grounded-QA API endpoints."""
+"""Hybrid retrieval and grounded-QA API endpoints."""
 import logging
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel, Field

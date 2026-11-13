@@ -75,7 +75,7 @@ flowchart TB
   ECR[Amazon ECR images - reference] -. container images .-> WEB
   ECR -. container images .-> API
   ECR -. container images .-> WORKER
-  IAM[IAM task roles and Secrets Manager - reference] -. access .-> API
+  IAM[IAM roles and Secrets Manager - reference] -. access .-> API
   IAM -. access .-> WORKER
   API -. logs / metrics .-> CW[Amazon CloudWatch - reference]
   WORKER -. logs / metrics .-> CW

@@ -129,7 +129,7 @@ export function DocumentLibrary({ user }: { user: DemoUser }) {
             <div className="doc-info"><strong title={doc.filename}>{doc.filename}</strong><span>{doc.project_code || "Cross-project reference"} · {doc.chunk_count} chunks · {new Date(doc.created_at).toLocaleDateString()}</span>{doc.error_code && <small className="doc-error">Processing error: {doc.error_code}</small>}</div>
             <span className={`doc-status doc-${doc.status}`}>{doc.status}</span>
             {admin && <button className="permissions-button" onClick={() => { setEditing(editing === doc.id ? null : doc.id); setEditRoles([...ROLES.map((r) => r.id)]); }}><LockKeyhole size={15}/> Access</button>}
-            {editing === doc.id && <div className="edit-access"><div className="edit-title">Set allowed roles <small>(current grants are not returned by Task 4)</small></div><div className="role-checks">
+            {editing === doc.id && <div className="edit-access"><div className="edit-title">Set allowed roles <small>(current grants are not returned)</small></div><div className="role-checks">
               {ROLES.map((role) => <label key={role.id}><input type="checkbox" checked={editRoles.includes(role.id)} onChange={(e) => setEditRoles((old) => e.target.checked ? [...old, role.id] : old.filter((v) => v !== role.id))}/>{role.label}</label>)}
             </div><button className="primary-button small" type="button" disabled={!editRoles.length || savingId === doc.id} onClick={() => void savePermissions(doc.id)}>{savingId === doc.id ? "Saving…" : "Save permissions"}</button></div>}
           </div>)}</div>}

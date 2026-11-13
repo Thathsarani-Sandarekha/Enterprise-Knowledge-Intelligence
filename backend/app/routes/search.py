@@ -1,4 +1,4 @@
-"""Task 3 vector-only diagnostic endpoint with mandatory Task 4 access checks."""
+"""vector-only diagnostic endpoint with mandatory access checks."""
 from fastapi import APIRouter, Depends
 from pydantic import BaseModel, Field
 from sqlalchemy import select

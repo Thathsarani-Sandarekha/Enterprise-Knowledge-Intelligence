@@ -19,14 +19,11 @@ jobs:
         with:
           python-version: '3.12'
           cache: pip
-          cache-dependency-path: |
-            backend/requirements-demo.txt
-            backend/requirements-task3.txt
-            backend/requirements-task4.txt
+          cache-dependency-path: backend/requirements.txt
       - name: Install backend test dependencies
         run: |
           python -m pip install --upgrade pip
-          python -m pip install -r requirements-demo.txt
+          python -m pip install -r requirements.txt
       - name: Unit and security-contract tests (no provider calls)
         run: |
           python -m pytest -q \

@@ -1,4 +1,4 @@
-"""Local-only Task 3 configuration. Add real auth before network deployment."""
+"""Local-only configuration. Add real auth before network deployment."""
 import os
 from pathlib import Path
 from dotenv import load_dotenv

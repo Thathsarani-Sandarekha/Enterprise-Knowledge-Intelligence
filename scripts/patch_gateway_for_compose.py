@@ -14,7 +14,6 @@ if not file.is_file():
     sys.exit('Cannot find Next.js gateway route. No changes made.')
 content = file.read_text(encoding='utf-8')
 old = r"""  if (!/^http:\/\/(127\.0\.0\.1|localhost)(:\d+)?\/?$/.test(base)) {"""
-# The raw string above must match the JS regexp in Task 5 exactly.
 new = r"""  const localhostBackend = /^http:\/\/(127\.0\.0\.1|localhost)(:\d+)?\/?$/.test(base);
   const composeBackend = process.env.DOCKER_LOCAL_DEMO === "1" && base === "http://api:8000";
   if (!localhostBackend && !composeBackend) {"""

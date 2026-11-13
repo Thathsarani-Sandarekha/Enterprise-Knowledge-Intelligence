@@ -1,0 +1,27 @@
+flowchart LR
+  subgraph Workspace["Workspace"]
+    USER["Fictional demo identities"] --> UI["Next.js library / search / citations"] --> GATE["Server-side API gateway"]
+  end
+  subgraph API["FastAPI and access"]
+    APP["Upload / search / ask"] --> ACL["Tenant + role predicates"]
+  end
+  subgraph Pipeline["Document ingestion"]
+    SAVE{"Storage adapter"} --> LOCAL["Local originals (default)"]
+    SAVE --> S3["Private S3 originals (optional Boto3)"]
+    LOCAL --> WK["Database-queued Python worker"]
+    S3 --> WK
+    WK --> PARSE["Docling PDF/DOCX + OpenPyXL XLSX"] --> EMB["Source-aware chunks + local embeddings"]
+  end
+  subgraph Data["Indexed knowledge"]
+    PG[("PostgreSQL + pgvector: metadata, grants, chunks and FTS")]
+  end
+  subgraph Answers["Permission-aware retrieval and answers"]
+    RET["Keyword + vector search"] --> RRF["RRF + cross-encoder reranking"] --> GROQ["Groq LLM"] --> CITE["Verified citation excerpts"]
+  end
+  GATE --> APP
+  APP -->|upload| SAVE
+  APP -->|document metadata| PG
+  EMB --> PG
+  ACL --> RET
+  PG -->|authorized chunks| RET
+  CITE --> GATE

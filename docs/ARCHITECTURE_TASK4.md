@@ -1,4 +1,4 @@
-# Task 4 Architecture — Asteria Hospitality Studio (fictional)
+# Architecture — Asteria Hospitality Studio (fictional)
 
 ```mermaid
 flowchart TD
@@ -13,7 +13,7 @@ flowchart TD
     CE --> G[Groq GPT-OSS 20B strict JSON]
     G --> C[Deterministic citation integrity checks]
     C --> O[Answer + DB-provided source locations / abstention]
-    INGEST[Existing Task 3 Docling / XLSX ingestion worker] --> DB[(PostgreSQL documents + chunks + grants)]
+    INGEST[Existing Docling / XLSX ingestion worker] --> DB[(PostgreSQL documents + chunks + grants)]
     DB --> K
     DB --> V
 ```

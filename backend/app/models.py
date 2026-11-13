@@ -1,6 +1,6 @@
 """Tenant-scoped initial document and evidence schema.
 
-There is no real user authorization in Task 3. The API is local-only.
+There is no real user authorization. The API is local-only.
 """
 from datetime import datetime, timezone
 from uuid import uuid4

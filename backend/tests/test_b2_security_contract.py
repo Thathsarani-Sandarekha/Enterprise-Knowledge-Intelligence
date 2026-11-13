@@ -40,7 +40,6 @@ def test_fabricated_quote_rejected():
 
 
 def test_duplicate_evidence_id_valid_for_different_excerpts():
-    # This regression corresponds to the duplicate-E2 failure fixed in Task 4.
     ok, verified = verify_draft(draft([
         {'evidence_id': 'E1', 'quote': 'UPH-FR-220 was approved for Solstice Grand Resort.'},
         {'evidence_id': 'E1', 'quote': 'Supplier Northstar Contract Textiles provided dossier FR-DOC-220.'},

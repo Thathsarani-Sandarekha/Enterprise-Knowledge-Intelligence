@@ -13,7 +13,7 @@
 
 1. Create a **private** S3 bucket in an AWS region you control. Enable Block Public Access and default bucket encryption.
 2. Grant the backend identity only `s3:PutObject`, `s3:GetObject`, and `s3:DeleteObject` to your dedicated object prefix. Use IAM roles or the normal AWS CLI profile; never commit access keys. A limited CLI profile is suitable for local testing.
-3. In `docmind_env`, from `backend`: `python -m pip install -r requirements-s3.txt`.
+3. In `docmind_env`, from `backend`: `python -m pip install -r requirements.txt`.
 4. Add these values to **untracked** `backend/.env` (use `.env.s3.example` as a reference):
 
 ```dotenv
@@ -44,7 +44,7 @@ Bucket encryption, network policy, tenant-specific IAM isolation and audit logs 
 
 ### Docker note
 
-The container needs `boto3` installed plus an authorized credential source *inside the container*. The release installer adds the optional dependency to `requirements-demo.txt` when found. Do not copy `~/.aws/credentials` or private keys into Docker images or Git. Use local mode when cloud credentials are unavailable. AWS compute deployment is explicitly a **future architecture concept**, not the result of adding S3 storage support.
+The container needs `boto3` installed plus an authorized credential source *inside the container*. The release installer adds the optional dependency to `requirements.txt` when found. Do not copy `~/.aws/credentials` or private keys into Docker images or Git. Use local mode when cloud credentials are unavailable. AWS compute deployment is explicitly a **future architecture concept**, not the result of adding S3 storage support.
 
 ## Official API references
 
