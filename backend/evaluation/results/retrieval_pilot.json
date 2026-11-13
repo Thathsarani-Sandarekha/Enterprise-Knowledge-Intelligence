@@ -1,0 +1,977 @@
+{
+  "metadata": {
+    "generated_at_utc": "2026-11-12T09:06:32.851515+00:00",
+    "python": "3.11.15",
+    "top_k": 5,
+    "queries": 15,
+    "corpus": "3 ready documents (across all tenants)",
+    "measurement": "warm-model retrieval only; document-level gold labels"
+  },
+  "summary": {
+    "keyword": {
+      "queries": 15,
+      "answerable_queries": 12,
+      "access_probes": 3,
+      "mean_document_recall_at_k": 1.0,
+      "mrr_at_k": 0.8889,
+      "p50_latency_ms": 3.6,
+      "p95_latency_ms": 22.5,
+      "forbidden_document_exposures": 0,
+      "expected_empty_violations": 0
+    },
+    "vector": {
+      "queries": 15,
+      "answerable_queries": 12,
+      "access_probes": 3,
+      "mean_document_recall_at_k": 1.0,
+      "mrr_at_k": 0.6347,
+      "p50_latency_ms": 10.8,
+      "p95_latency_ms": 12.9,
+      "forbidden_document_exposures": 0,
+      "expected_empty_violations": 0
+    },
+    "hybrid_rrf_rerank": {
+      "queries": 15,
+      "answerable_queries": 12,
+      "access_probes": 3,
+      "mean_document_recall_at_k": 1.0,
+      "mrr_at_k": 0.8333,
+      "p50_latency_ms": 115.4,
+      "p95_latency_ms": 265.1,
+      "forbidden_document_exposures": 0,
+      "expected_empty_violations": 0
+    }
+  },
+  "cases": [
+    {
+      "id": "Q01",
+      "role": "aster-procurement",
+      "method": "keyword",
+      "question": "What was the quoted unit price of UPH-FR-220 at Solstice Grand Resort?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_supplier_quotes.xlsx"
+      ],
+      "ranked_filenames": [
+        "synthetic_supplier_quotes.xlsx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 9.6
+    },
+    {
+      "id": "Q01",
+      "role": "aster-procurement",
+      "method": "vector",
+      "question": "What was the quoted unit price of UPH-FR-220 at Solstice Grand Resort?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_supplier_quotes.xlsx"
+      ],
+      "ranked_filenames": [
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_supplier_quotes.xlsx",
+        "synthetic_finish_approvals.docx"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 0.25,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 12.2
+    },
+    {
+      "id": "Q01",
+      "role": "aster-procurement",
+      "method": "hybrid_rrf_rerank",
+      "question": "What was the quoted unit price of UPH-FR-220 at Solstice Grand Resort?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_supplier_quotes.xlsx"
+      ],
+      "ranked_filenames": [
+        "synthetic_supplier_quotes.xlsx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 265.1
+    },
+    {
+      "id": "Q02",
+      "role": "aster-procurement",
+      "method": "keyword",
+      "question": "What was the quoted unit price of UPH-FR-310 at Harborcrest Hotel?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_supplier_quotes.xlsx"
+      ],
+      "ranked_filenames": [
+        "synthetic_supplier_quotes.xlsx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 3.6
+    },
+    {
+      "id": "Q02",
+      "role": "aster-procurement",
+      "method": "vector",
+      "question": "What was the quoted unit price of UPH-FR-310 at Harborcrest Hotel?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_supplier_quotes.xlsx"
+      ],
+      "ranked_filenames": [
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_supplier_quotes.xlsx"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 0.2,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 10.5
+    },
+    {
+      "id": "Q02",
+      "role": "aster-procurement",
+      "method": "hybrid_rrf_rerank",
+      "question": "What was the quoted unit price of UPH-FR-310 at Harborcrest Hotel?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_supplier_quotes.xlsx"
+      ],
+      "ranked_filenames": [
+        "synthetic_finish_approvals.docx",
+        "synthetic_supplier_quotes.xlsx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 0.5,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 228.8
+    },
+    {
+      "id": "Q03",
+      "role": "aster-procurement",
+      "method": "keyword",
+      "question": "Compare the supplier lead times of UPH-FR-220 and UPH-FR-310.",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_supplier_quotes.xlsx"
+      ],
+      "ranked_filenames": [
+        "synthetic_supplier_quotes.xlsx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 3.6
+    },
+    {
+      "id": "Q03",
+      "role": "aster-procurement",
+      "method": "vector",
+      "question": "Compare the supplier lead times of UPH-FR-220 and UPH-FR-310.",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_supplier_quotes.xlsx"
+      ],
+      "ranked_filenames": [
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_supplier_quotes.xlsx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 0.3333333333333333,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 10.8
+    },
+    {
+      "id": "Q03",
+      "role": "aster-procurement",
+      "method": "hybrid_rrf_rerank",
+      "question": "Compare the supplier lead times of UPH-FR-220 and UPH-FR-310.",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_supplier_quotes.xlsx"
+      ],
+      "ranked_filenames": [
+        "synthetic_supplier_quotes.xlsx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 236.1
+    },
+    {
+      "id": "Q04",
+      "role": "aster-procurement",
+      "method": "keyword",
+      "question": "Which standard cotton blend was rejected for guestroom use and why?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_supplier_quotes.xlsx"
+      ],
+      "ranked_filenames": [
+        "synthetic_supplier_quotes.xlsx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 3.4
+    },
+    {
+      "id": "Q04",
+      "role": "aster-procurement",
+      "method": "vector",
+      "question": "Which standard cotton blend was rejected for guestroom use and why?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_supplier_quotes.xlsx"
+      ],
+      "ranked_filenames": [
+        "synthetic_finish_approvals.docx",
+        "synthetic_supplier_quotes.xlsx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_fire_document_register.pdf"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 0.5,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 10.7
+    },
+    {
+      "id": "Q04",
+      "role": "aster-procurement",
+      "method": "hybrid_rrf_rerank",
+      "question": "Which standard cotton blend was rejected for guestroom use and why?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_supplier_quotes.xlsx"
+      ],
+      "ranked_filenames": [
+        "synthetic_supplier_quotes.xlsx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 233.7
+    },
+    {
+      "id": "Q05",
+      "role": "aster-admin",
+      "method": "keyword",
+      "question": "What design material was approved under decision AP-17?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_finish_approvals.docx"
+      ],
+      "ranked_filenames": [
+        "synthetic_supplier_quotes.xlsx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 0.3333333333333333,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 4.2
+    },
+    {
+      "id": "Q05",
+      "role": "aster-admin",
+      "method": "vector",
+      "question": "What design material was approved under decision AP-17?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_finish_approvals.docx"
+      ],
+      "ranked_filenames": [
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 0.5,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 10.5
+    },
+    {
+      "id": "Q05",
+      "role": "aster-admin",
+      "method": "hybrid_rrf_rerank",
+      "question": "What design material was approved under decision AP-17?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_finish_approvals.docx"
+      ],
+      "ranked_filenames": [
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_supplier_quotes.xlsx",
+        "synthetic_finish_approvals.docx"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 0.5,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 197.8
+    },
+    {
+      "id": "Q06",
+      "role": "aster-admin",
+      "method": "keyword",
+      "question": "Which earlier hospitality renovation used UPH-FR-310?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_finish_approvals.docx"
+      ],
+      "ranked_filenames": [
+        "synthetic_supplier_quotes.xlsx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 0.3333333333333333,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 3.3
+    },
+    {
+      "id": "Q06",
+      "role": "aster-admin",
+      "method": "vector",
+      "question": "Which earlier hospitality renovation used UPH-FR-310?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_finish_approvals.docx"
+      ],
+      "ranked_filenames": [
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_supplier_quotes.xlsx"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 11.2
+    },
+    {
+      "id": "Q06",
+      "role": "aster-admin",
+      "method": "hybrid_rrf_rerank",
+      "question": "Which earlier hospitality renovation used UPH-FR-310?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_finish_approvals.docx"
+      ],
+      "ranked_filenames": [
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_supplier_quotes.xlsx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 239.8
+    },
+    {
+      "id": "Q07",
+      "role": "aster-designer",
+      "method": "keyword",
+      "question": "Which woven upholstery product was approved for Solstice Grand Resort guestroom lounge seating?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_finish_approvals.docx"
+      ],
+      "ranked_filenames": [
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 3.2
+    },
+    {
+      "id": "Q07",
+      "role": "aster-designer",
+      "method": "vector",
+      "question": "Which woven upholstery product was approved for Solstice Grand Resort guestroom lounge seating?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_finish_approvals.docx"
+      ],
+      "ranked_filenames": [
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 11.6
+    },
+    {
+      "id": "Q07",
+      "role": "aster-designer",
+      "method": "hybrid_rrf_rerank",
+      "question": "Which woven upholstery product was approved for Solstice Grand Resort guestroom lounge seating?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_finish_approvals.docx"
+      ],
+      "ranked_filenames": [
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 86.6
+    },
+    {
+      "id": "Q08",
+      "role": "aster-designer",
+      "method": "keyword",
+      "question": "What approval condition applies to the final UPH-FR-220 SKU?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_finish_approvals.docx"
+      ],
+      "ranked_filenames": [
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 22.5
+    },
+    {
+      "id": "Q08",
+      "role": "aster-designer",
+      "method": "vector",
+      "question": "What approval condition applies to the final UPH-FR-220 SKU?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_finish_approvals.docx"
+      ],
+      "ranked_filenames": [
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 12.6
+    },
+    {
+      "id": "Q08",
+      "role": "aster-designer",
+      "method": "hybrid_rrf_rerank",
+      "question": "What approval condition applies to the final UPH-FR-220 SKU?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_finish_approvals.docx"
+      ],
+      "ranked_filenames": [
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 87.3
+    },
+    {
+      "id": "Q09",
+      "role": "aster-designer",
+      "method": "keyword",
+      "question": "Which fire-performance supplier dossier is recorded for UPH-FR-220?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_fire_document_register.pdf"
+      ],
+      "ranked_filenames": [
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_fire_document_register.pdf"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 3.6
+    },
+    {
+      "id": "Q09",
+      "role": "aster-designer",
+      "method": "vector",
+      "question": "Which fire-performance supplier dossier is recorded for UPH-FR-220?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_fire_document_register.pdf"
+      ],
+      "ranked_filenames": [
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 9.3
+    },
+    {
+      "id": "Q09",
+      "role": "aster-designer",
+      "method": "hybrid_rrf_rerank",
+      "question": "Which fire-performance supplier dossier is recorded for UPH-FR-220?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_fire_document_register.pdf"
+      ],
+      "ranked_filenames": [
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_fire_document_register.pdf"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 99.3
+    },
+    {
+      "id": "Q10",
+      "role": "aster-pm",
+      "method": "keyword",
+      "question": "What supplier fire-performance dossier was received for the Harborcrest Hotel upholstery?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_fire_document_register.pdf"
+      ],
+      "ranked_filenames": [
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_fire_document_register.pdf"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 3.9
+    },
+    {
+      "id": "Q10",
+      "role": "aster-pm",
+      "method": "vector",
+      "question": "What supplier fire-performance dossier was received for the Harborcrest Hotel upholstery?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_fire_document_register.pdf"
+      ],
+      "ranked_filenames": [
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 0.5,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 12.9
+    },
+    {
+      "id": "Q10",
+      "role": "aster-pm",
+      "method": "hybrid_rrf_rerank",
+      "question": "What supplier fire-performance dossier was received for the Harborcrest Hotel upholstery?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_fire_document_register.pdf"
+      ],
+      "ranked_filenames": [
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 0.5,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 115.4
+    },
+    {
+      "id": "Q11",
+      "role": "aster-pm",
+      "method": "keyword",
+      "question": "Where does the finish approval memorandum say quoted prices can be found?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_finish_approvals.docx"
+      ],
+      "ranked_filenames": [
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 3.0
+    },
+    {
+      "id": "Q11",
+      "role": "aster-pm",
+      "method": "vector",
+      "question": "Where does the finish approval memorandum say quoted prices can be found?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_finish_approvals.docx"
+      ],
+      "ranked_filenames": [
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 11.0
+    },
+    {
+      "id": "Q11",
+      "role": "aster-pm",
+      "method": "hybrid_rrf_rerank",
+      "question": "Where does the finish approval memorandum say quoted prices can be found?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_finish_approvals.docx"
+      ],
+      "ranked_filenames": [
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_fire_document_register.pdf"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 82.4
+    },
+    {
+      "id": "Q12",
+      "role": "aster-procurement",
+      "method": "keyword",
+      "question": "Who supplied UPH-FR-310 and what is its lead time in days?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_supplier_quotes.xlsx"
+      ],
+      "ranked_filenames": [
+        "synthetic_supplier_quotes.xlsx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 1.0,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 3.5
+    },
+    {
+      "id": "Q12",
+      "role": "aster-procurement",
+      "method": "vector",
+      "question": "Who supplied UPH-FR-310 and what is its lead time in days?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_supplier_quotes.xlsx"
+      ],
+      "ranked_filenames": [
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_supplier_quotes.xlsx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 0.3333333333333333,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 9.7
+    },
+    {
+      "id": "Q12",
+      "role": "aster-procurement",
+      "method": "hybrid_rrf_rerank",
+      "question": "Who supplied UPH-FR-310 and what is its lead time in days?",
+      "project_code": null,
+      "relevant_files": [
+        "synthetic_supplier_quotes.xlsx"
+      ],
+      "ranked_filenames": [
+        "synthetic_finish_approvals.docx",
+        "synthetic_supplier_quotes.xlsx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx"
+      ],
+      "recall_at_k": 1.0,
+      "reciprocal_rank_at_k": 0.5,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 227.0
+    },
+    {
+      "id": "Q13",
+      "role": "aster-designer",
+      "method": "keyword",
+      "question": "What are the restricted supplier quote spreadsheet prices for the two upholstery fabrics?",
+      "project_code": null,
+      "relevant_files": [],
+      "ranked_filenames": [
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_fire_document_register.pdf"
+      ],
+      "recall_at_k": null,
+      "reciprocal_rank_at_k": null,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 3.6
+    },
+    {
+      "id": "Q13",
+      "role": "aster-designer",
+      "method": "vector",
+      "question": "What are the restricted supplier quote spreadsheet prices for the two upholstery fabrics?",
+      "project_code": null,
+      "relevant_files": [],
+      "ranked_filenames": [
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_finish_approvals.docx"
+      ],
+      "recall_at_k": null,
+      "reciprocal_rank_at_k": null,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 10.7
+    },
+    {
+      "id": "Q13",
+      "role": "aster-designer",
+      "method": "hybrid_rrf_rerank",
+      "question": "What are the restricted supplier quote spreadsheet prices for the two upholstery fabrics?",
+      "project_code": null,
+      "relevant_files": [],
+      "ranked_filenames": [
+        "synthetic_finish_approvals.docx",
+        "synthetic_finish_approvals.docx",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_fire_document_register.pdf",
+        "synthetic_fire_document_register.pdf"
+      ],
+      "recall_at_k": null,
+      "reciprocal_rank_at_k": null,
+      "forbidden_returned": [],
+      "expected_empty": false,
+      "latency_ms": 91.6
+    },
+    {
+      "id": "Q14",
+      "role": "rival-designer",
+      "method": "keyword",
+      "question": "Find the Solstice Grand Resort UPH-FR-220 renovation supplier information.",
+      "project_code": null,
+      "relevant_files": [],
+      "ranked_filenames": [],
+      "recall_at_k": null,
+      "reciprocal_rank_at_k": null,
+      "forbidden_returned": [],
+      "expected_empty": true,
+      "latency_ms": 2.4
+    },
+    {
+      "id": "Q14",
+      "role": "rival-designer",
+      "method": "vector",
+      "question": "Find the Solstice Grand Resort UPH-FR-220 renovation supplier information.",
+      "project_code": null,
+      "relevant_files": [],
+      "ranked_filenames": [],
+      "recall_at_k": null,
+      "reciprocal_rank_at_k": null,
+      "forbidden_returned": [],
+      "expected_empty": true,
+      "latency_ms": 10.1
+    },
+    {
+      "id": "Q14",
+      "role": "rival-designer",
+      "method": "hybrid_rrf_rerank",
+      "question": "Find the Solstice Grand Resort UPH-FR-220 renovation supplier information.",
+      "project_code": null,
+      "relevant_files": [],
+      "ranked_filenames": [],
+      "recall_at_k": null,
+      "reciprocal_rank_at_k": null,
+      "forbidden_returned": [],
+      "expected_empty": true,
+      "latency_ms": 11.6
+    },
+    {
+      "id": "Q15",
+      "role": "rival-admin",
+      "method": "keyword",
+      "question": "List Asteria Studio fire-rated upholstery supplier quotations.",
+      "project_code": null,
+      "relevant_files": [],
+      "ranked_filenames": [],
+      "recall_at_k": null,
+      "reciprocal_rank_at_k": null,
+      "forbidden_returned": [],
+      "expected_empty": true,
+      "latency_ms": 1.7
+    },
+    {
+      "id": "Q15",
+      "role": "rival-admin",
+      "method": "vector",
+      "question": "List Asteria Studio fire-rated upholstery supplier quotations.",
+      "project_code": null,
+      "relevant_files": [],
+      "ranked_filenames": [],
+      "recall_at_k": null,
+      "reciprocal_rank_at_k": null,
+      "forbidden_returned": [],
+      "expected_empty": true,
+      "latency_ms": 11.2
+    },
+    {
+      "id": "Q15",
+      "role": "rival-admin",
+      "method": "hybrid_rrf_rerank",
+      "question": "List Asteria Studio fire-rated upholstery supplier quotations.",
+      "project_code": null,
+      "relevant_files": [],
+      "ranked_filenames": [],
+      "recall_at_k": null,
+      "reciprocal_rank_at_k": null,
+      "forbidden_returned": [],
+      "expected_empty": true,
+      "latency_ms": 12.4
+    }
+  ]
+}

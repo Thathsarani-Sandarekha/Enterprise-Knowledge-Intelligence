@@ -1,0 +1,6 @@
+# Install with the SAME activated conda environment as Task 3.
+# Task 3 deps (docling, embeddings, sqlalchemy, pgvector) must remain installed.
+groq>=0.18,<2
+sentence-transformers>=3,<6
+pytest>=8,<10
+httpx>=0.27,<1

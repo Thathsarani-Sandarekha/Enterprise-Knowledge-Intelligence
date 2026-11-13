@@ -1,0 +1,57 @@
+# Overlay on your EXISTING docker-compose.yml; reuses the db service and volume.
+# Local demo only: simulated demo identities and shared development API key.
+services:
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file:
+      - ./backend/.env
+    environment:
+      DATABASE_URL: postgresql+psycopg://eki:local_only_password@db:5432/eki
+      APP_MODE: local
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - '127.0.0.1:8000:8000'
+    volumes:
+      - ./backend/data:/app/data
+      - model_cache:/root/.cache
+    restart: unless-stopped
+
+  worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    command: ["python", "-m", "app.worker"]
+    env_file:
+      - ./backend/.env
+    environment:
+      DATABASE_URL: postgresql+psycopg://eki:local_only_password@db:5432/eki
+      APP_MODE: local
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./backend/data:/app/data
+      - model_cache:/root/.cache
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    env_file:
+      - ./frontend/.env.local
+    environment:
+      BACKEND_API_URL: http://api:8000
+      DOCKER_LOCAL_DEMO: '1'
+    depends_on:
+      - api
+    ports:
+      - '127.0.0.1:3000:3000'
+    restart: unless-stopped
+
+volumes:
+  model_cache:

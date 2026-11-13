@@ -1,0 +1,57 @@
+# Secrets and private configuration
+.env
+.env.*
+**/.env
+**/.env.*
+!**/.env.example
+!**/.env.*.example
+!**/.env.local.example
+!**/.env.s3.example
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+*.egg-info/
+.coverage
+htmlcov/
+
+# Node/Next
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+frontend/next-env.d.ts
+/package-lock.json
+
+# Generated uploaded documents and runtime state
+backend/data/uploads/
+*.sqlite
+*.sqlite3
+*.log
+*.tmp
+
+# Debug/backup outputs
+*.bak
+*.release-proposed
+backend/app/services/answers_backup.py
+release_kit/
+apply_release_kit.py
+backend/evaluation/results/*
+!backend/evaluation/results/retrieval_pilot.json
+!backend/evaluation/results/retrieval_pilot.md
+!backend/evaluation/results/security_smoke.json
+!backend/evaluation/results/security_smoke.md
+!backend/evaluation/results/adversarial_pilot.json
+!backend/evaluation/results/answer_quality_pilot.json
+!backend/evaluation/results/answer_quality_pilot.md
+
+# Local IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

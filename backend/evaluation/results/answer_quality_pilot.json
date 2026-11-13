@@ -1,0 +1,876 @@
+{
+  "generated_at_utc": "2026-11-12T10:24:51.835611+00:00",
+  "api_url": "http://127.0.0.1:8000",
+  "configured_groq_model": "openai/gpt-oss-20b",
+  "corpus": "three synthetic Asteria Studio hospitality documents",
+  "cases": [
+    {
+      "id": "A01",
+      "role": "aster-procurement",
+      "kind": "answerable",
+      "question": "What was the quoted unit price of UPH-FR-220 for Solstice Grand Resort?",
+      "response": {
+        "status": "answered",
+        "answer": "The quoted unit price for UPH‑FR‑220 at Solstice Grand Resort is $145 per yard.",
+        "citations": [
+          {
+            "document_id": "e804922e-4c8b-4f98-add7-9a0ca3ad996e",
+            "chunk_id": "a9ebae3b-80a4-4fa9-a558-92bbd9e7d37a",
+            "filename": "synthetic_supplier_quotes.xlsx",
+            "project_code": null,
+            "source": {
+              "sheet": "Supplier Quotes",
+              "format": "xlsx",
+              "row_end": 4,
+              "row_start": 1,
+              "cell_range": "'Supplier Quotes'!A1:J4",
+              "locator_type": "cell_range"
+            },
+            "supporting_quote": "A2=SGR-2025; B2=Solstice Grand Resort; C2=UPH-FR-220; D2=Woven performance upholstery (supplier fire-test dossier FR-DOC-220); E2=Northstar Contract Textiles; F2=145; G2=2025-05-08; H2=AP-17; I2=21; J2=Approved bid"
+          }
+        ],
+        "citation_integrity": "passed",
+        "reason": null,
+        "retrieval": {
+          "keyword_candidates": 5,
+          "vector_candidates": 8,
+          "reranked": true,
+          "latency_ms": 264.1,
+          "note": "Rerank scores are model logits, not confidence probabilities"
+        },
+        "usage": {
+          "input_tokens": 1749,
+          "output_tokens": 183,
+          "model": "openai/gpt-oss-20b"
+        }
+      },
+      "automatic": {
+        "status": "answered",
+        "kind": "answerable",
+        "expected_behavior": "answered_expected",
+        "status_pass": true,
+        "fact_matches": [
+          {
+            "label": "UPH-FR-220",
+            "matched": true
+          },
+          {
+            "label": "USD 145",
+            "matched": true
+          }
+        ],
+        "reference_facts_matched": 2,
+        "reference_facts_total": 2,
+        "reference_fact_coverage": 1.0,
+        "citation_count": 1,
+        "citation_integrity": "passed",
+        "citation_source_alignment_proxy": true,
+        "forbidden_cited_documents": [],
+        "forbidden_answer_pattern_hits": 0,
+        "passed_automatic_checks": true
+      },
+      "latency_ms": 863.2
+    },
+    {
+      "id": "A02",
+      "role": "aster-procurement",
+      "kind": "answerable",
+      "question": "What was the quoted unit price of UPH-FR-310 for Harborcrest Hotel?",
+      "response": {
+        "status": "answered",
+        "answer": "The quoted unit price for UPH‑FR‑310 for Harborcrest Hotel was $189 per yard.",
+        "citations": [
+          {
+            "document_id": "e804922e-4c8b-4f98-add7-9a0ca3ad996e",
+            "chunk_id": "a9ebae3b-80a4-4fa9-a558-92bbd9e7d37a",
+            "filename": "synthetic_supplier_quotes.xlsx",
+            "project_code": null,
+            "source": {
+              "sheet": "Supplier Quotes",
+              "format": "xlsx",
+              "row_end": 4,
+              "row_start": 1,
+              "cell_range": "'Supplier Quotes'!A1:J4",
+              "locator_type": "cell_range"
+            },
+            "supporting_quote": "A3=HBR-2024; B3=Harborcrest Hotel; C3=UPH-FR-310; D3=Treated velvet hospitality upholstery (supplier fire-test dossier FR-DOC-310); E3=Bayline Hospitality Fabrics; F3=189; G3=2024-09-18; H3=AP-44; I3=28; J3=Approved bid"
+          }
+        ],
+        "citation_integrity": "passed",
+        "reason": null,
+        "retrieval": {
+          "keyword_candidates": 4,
+          "vector_candidates": 8,
+          "reranked": true,
+          "latency_ms": 257.8,
+          "note": "Rerank scores are model logits, not confidence probabilities"
+        },
+        "usage": {
+          "input_tokens": 1716,
+          "output_tokens": 182,
+          "model": "openai/gpt-oss-20b"
+        }
+      },
+      "automatic": {
+        "status": "answered",
+        "kind": "answerable",
+        "expected_behavior": "answered_expected",
+        "status_pass": true,
+        "fact_matches": [
+          {
+            "label": "UPH-FR-310",
+            "matched": true
+          },
+          {
+            "label": "USD 189",
+            "matched": true
+          }
+        ],
+        "reference_facts_matched": 2,
+        "reference_facts_total": 2,
+        "reference_fact_coverage": 1.0,
+        "citation_count": 1,
+        "citation_integrity": "passed",
+        "citation_source_alignment_proxy": true,
+        "forbidden_cited_documents": [],
+        "forbidden_answer_pattern_hits": 0,
+        "passed_automatic_checks": true
+      },
+      "latency_ms": 880.8
+    },
+    {
+      "id": "A03",
+      "role": "aster-procurement",
+      "kind": "answerable",
+      "question": "Compare the quoted unit prices and supplier lead times of UPH-FR-220 and UPH-FR-310.",
+      "response": {
+        "status": "insufficient_evidence",
+        "answer": "I cannot verify an answer from the accessible project documents.",
+        "citations": [],
+        "citation_integrity": "not_applicable",
+        "reason": "citation_verification_failed",
+        "retrieval": {
+          "keyword_candidates": 6,
+          "vector_candidates": 8,
+          "reranked": true,
+          "latency_ms": 281.0,
+          "note": "Rerank scores are model logits, not confidence probabilities"
+        }
+      },
+      "automatic": {
+        "status": "insufficient_evidence",
+        "kind": "answerable",
+        "expected_behavior": "answered_expected",
+        "status_pass": false,
+        "fact_matches": [
+          {
+            "label": "first product",
+            "matched": false
+          },
+          {
+            "label": "second product",
+            "matched": false
+          },
+          {
+            "label": "USD 145",
+            "matched": false
+          },
+          {
+            "label": "USD 189",
+            "matched": false
+          },
+          {
+            "label": "21-day lead time",
+            "matched": false
+          },
+          {
+            "label": "28-day lead time",
+            "matched": false
+          }
+        ],
+        "reference_facts_matched": 0,
+        "reference_facts_total": 6,
+        "reference_fact_coverage": 0.0,
+        "citation_count": 0,
+        "citation_integrity": "not_applicable",
+        "citation_source_alignment_proxy": false,
+        "forbidden_cited_documents": [],
+        "forbidden_answer_pattern_hits": 0,
+        "passed_automatic_checks": false
+      },
+      "latency_ms": 1223.8
+    },
+    {
+      "id": "A04",
+      "role": "aster-procurement",
+      "kind": "answerable",
+      "question": "Which standard cotton blend was rejected for guestroom use, and why?",
+      "response": {
+        "status": "insufficient_evidence",
+        "answer": "I cannot verify an answer from the accessible project documents.",
+        "citations": [],
+        "citation_integrity": "not_applicable",
+        "reason": "citation_verification_failed",
+        "retrieval": {
+          "keyword_candidates": 4,
+          "vector_candidates": 8,
+          "reranked": true,
+          "latency_ms": 276.6,
+          "note": "Rerank scores are model logits, not confidence probabilities"
+        }
+      },
+      "automatic": {
+        "status": "insufficient_evidence",
+        "kind": "answerable",
+        "expected_behavior": "answered_expected",
+        "status_pass": false,
+        "fact_matches": [
+          {
+            "label": "rejected product",
+            "matched": false
+          },
+          {
+            "label": "rejection",
+            "matched": false
+          },
+          {
+            "label": "missing dossier",
+            "matched": false
+          }
+        ],
+        "reference_facts_matched": 0,
+        "reference_facts_total": 3,
+        "reference_fact_coverage": 0.0,
+        "citation_count": 0,
+        "citation_integrity": "not_applicable",
+        "citation_source_alignment_proxy": false,
+        "forbidden_cited_documents": [],
+        "forbidden_answer_pattern_hits": 0,
+        "passed_automatic_checks": false
+      },
+      "latency_ms": 1171.6
+    },
+    {
+      "id": "A05",
+      "role": "aster-admin",
+      "kind": "answerable",
+      "question": "What material was approved in design decision AP-17?",
+      "response": {
+        "status": "answered",
+        "answer": "The design decision AP-17 approved the material code UPH-FR-220, which is a woven performance upholstery by Northstar Contract Textiles.",
+        "citations": [
+          {
+            "document_id": "7993fec4-09e0-42db-9688-b28f14351c6d",
+            "chunk_id": "89c89df3-6dba-4d23-a9b0-7664365346e3",
+            "filename": "synthetic_finish_approvals.docx",
+            "project_code": "SGR-2025",
+            "source": {
+              "pages": [],
+              "format": "docx",
+              "headings": [
+                "Asteria Hospitality Studio",
+                "Finish Approval Memorandum",
+                "Approved materials"
+              ],
+              "locator_type": "section"
+            },
+            "supporting_quote": "UPH-FR-220 — Woven performance upholstery by Northstar Contract Textiles. Approved for Solstice Grand Resort guestroom lounge seating, subject to confirmation that the final supplied SKU matches fire-performance dossier FR-DOC-220."
+          },
+          {
+            "document_id": "e804922e-4c8b-4f98-add7-9a0ca3ad996e",
+            "chunk_id": "a9ebae3b-80a4-4fa9-a558-92bbd9e7d37a",
+            "filename": "synthetic_supplier_quotes.xlsx",
+            "project_code": null,
+            "source": {
+              "sheet": "Supplier Quotes",
+              "format": "xlsx",
+              "row_end": 4,
+              "row_start": 1,
+              "cell_range": "'Supplier Quotes'!A1:J4",
+              "locator_type": "cell_range"
+            },
+            "supporting_quote": "A2=SGR-2025; B2=Solstice Grand Resort; C2=UPH-FR-220; D2=Woven performance upholstery (supplier fire-test dossier FR-DOC-220); E2=Northstar Contract Textiles; F2=145; G2=2025-05-08; H2=AP-17; I2=21; J2=Approved bid"
+          }
+        ],
+        "citation_integrity": "passed",
+        "reason": null,
+        "retrieval": {
+          "keyword_candidates": 6,
+          "vector_candidates": 8,
+          "reranked": true,
+          "latency_ms": 268.8,
+          "note": "Rerank scores are model logits, not confidence probabilities"
+        },
+        "usage": {
+          "input_tokens": 1784,
+          "output_tokens": 287,
+          "model": "openai/gpt-oss-20b"
+        }
+      },
+      "automatic": {
+        "status": "answered",
+        "kind": "answerable",
+        "expected_behavior": "answered_expected",
+        "status_pass": true,
+        "fact_matches": [
+          {
+            "label": "UPH-FR-220",
+            "matched": true
+          }
+        ],
+        "reference_facts_matched": 1,
+        "reference_facts_total": 1,
+        "reference_fact_coverage": 1.0,
+        "citation_count": 2,
+        "citation_integrity": "passed",
+        "citation_source_alignment_proxy": true,
+        "forbidden_cited_documents": [],
+        "forbidden_answer_pattern_hits": 0,
+        "passed_automatic_checks": true
+      },
+      "latency_ms": 6510.2
+    },
+    {
+      "id": "A06",
+      "role": "aster-admin",
+      "kind": "answerable",
+      "question": "Which earlier hotel renovation project used the approved UPH-FR-310 upholstery?",
+      "response": {
+        "status": "insufficient_evidence",
+        "answer": "I cannot verify an answer from the accessible project documents.",
+        "citations": [],
+        "citation_integrity": "not_applicable",
+        "reason": "citation_verification_failed",
+        "retrieval": {
+          "keyword_candidates": 5,
+          "vector_candidates": 8,
+          "reranked": true,
+          "latency_ms": 279.0,
+          "note": "Rerank scores are model logits, not confidence probabilities"
+        }
+      },
+      "automatic": {
+        "status": "insufficient_evidence",
+        "kind": "answerable",
+        "expected_behavior": "answered_expected",
+        "status_pass": false,
+        "fact_matches": [
+          {
+            "label": "Harborcrest Hotel",
+            "matched": false
+          }
+        ],
+        "reference_facts_matched": 0,
+        "reference_facts_total": 1,
+        "reference_fact_coverage": 0.0,
+        "citation_count": 0,
+        "citation_integrity": "not_applicable",
+        "citation_source_alignment_proxy": false,
+        "forbidden_cited_documents": [],
+        "forbidden_answer_pattern_hits": 0,
+        "passed_automatic_checks": false
+      },
+      "latency_ms": 16318.0
+    },
+    {
+      "id": "A07",
+      "role": "aster-designer",
+      "kind": "answerable",
+      "question": "Which upholstery was approved for Solstice Grand Resort guestroom lounge seating, and what SKU verification condition applies?",
+      "response": null,
+      "automatic": {
+        "status": null,
+        "kind": "answerable",
+        "expected_behavior": "answered_expected",
+        "status_pass": false,
+        "fact_matches": [
+          {
+            "label": "UPH-FR-220",
+            "matched": false
+          },
+          {
+            "label": "FR-DOC-220",
+            "matched": false
+          },
+          {
+            "label": "confirm final supplied SKU",
+            "matched": false
+          }
+        ],
+        "reference_facts_matched": 0,
+        "reference_facts_total": 3,
+        "reference_fact_coverage": 0.0,
+        "citation_count": 0,
+        "citation_integrity": null,
+        "citation_source_alignment_proxy": false,
+        "forbidden_cited_documents": [],
+        "forbidden_answer_pattern_hits": 0,
+        "passed_automatic_checks": false
+      },
+      "latency_ms": 9503.8,
+      "error_type": "HTTPStatusError",
+      "http_status": 502
+    },
+    {
+      "id": "A08",
+      "role": "aster-pm",
+      "kind": "answerable",
+      "question": "What supplier fire-performance dossier is recorded for the Harborcrest Hotel upholstery?",
+      "response": {
+        "status": "answered",
+        "answer": "The supplier fire‑performance dossier recorded for the Harborcrest Hotel upholstery is FR‑DOC‑310, submitted by Bayline Hospitality Fabrics for material UPH‑FR‑310.",
+        "citations": [
+          {
+            "document_id": "0074c4e2-518b-4e0a-afd5-622eacda7665",
+            "chunk_id": "a3c6f386-2933-48f3-8ee5-0319155e271f",
+            "filename": "synthetic_fire_document_register.pdf",
+            "project_code": "SGR-2025",
+            "source": {
+              "pages": [
+                1
+              ],
+              "format": "pdf",
+              "headings": [
+                "Hospitality Fire-Performance Document Register"
+              ],
+              "locator_type": "page"
+            },
+            "supporting_quote": "HBR-2024, Material / supplier = UPH-FR-310 / Bayline Hospitality Fabrics. HBR-2024, Document reference = FR-DOC-310. HBR-2024, Status = Supplier dossier received"
+          }
+        ],
+        "citation_integrity": "passed",
+        "reason": null,
+        "retrieval": {
+          "keyword_candidates": 7,
+          "vector_candidates": 7,
+          "reranked": true,
+          "latency_ms": 103.8,
+          "note": "Rerank scores are model logits, not confidence probabilities"
+        },
+        "usage": {
+          "input_tokens": 1441,
+          "output_tokens": 179,
+          "model": "openai/gpt-oss-20b"
+        }
+      },
+      "automatic": {
+        "status": "answered",
+        "kind": "answerable",
+        "expected_behavior": "answered_expected",
+        "status_pass": true,
+        "fact_matches": [
+          {
+            "label": "FR-DOC-310",
+            "matched": true
+          }
+        ],
+        "reference_facts_matched": 1,
+        "reference_facts_total": 1,
+        "reference_fact_coverage": 1.0,
+        "citation_count": 1,
+        "citation_integrity": "passed",
+        "citation_source_alignment_proxy": true,
+        "forbidden_cited_documents": [],
+        "forbidden_answer_pattern_hits": 0,
+        "passed_automatic_checks": true
+      },
+      "latency_ms": 657.4
+    },
+    {
+      "id": "A09",
+      "role": "aster-designer",
+      "kind": "answerable",
+      "question": "Find approved upholstery for previous luxury hotel renovations, naming suppliers and quoted prices where available.",
+      "response": {
+        "status": "answered",
+        "answer": "Approved upholstery for previous luxury hotel renovations includes:\n- UPH-FR-220 – Woven performance upholstery supplied by Northstar Contract Textiles, approved for Solstice Grand Resort guestroom lounge seating (subject to confirmation of final SKU matching dossier FR‑DOC‑220).\n- UPH-FR-310 – Treated velvet upholstery supplied by Bayline Hospitality Fabrics, previously approved under Harborcrest Hotel project HBR‑2024 (decision AP‑44) and can be considered for similar hospitality applications.\nQuoted prices for these materials cannot be verified from the accessible project records.",
+        "citations": [
+          {
+            "document_id": "7993fec4-09e0-42db-9688-b28f14351c6d",
+            "chunk_id": "89c89df3-6dba-4d23-a9b0-7664365346e3",
+            "filename": "synthetic_finish_approvals.docx",
+            "project_code": "SGR-2025",
+            "source": {
+              "pages": [],
+              "format": "docx",
+              "headings": [
+                "Asteria Hospitality Studio",
+                "Finish Approval Memorandum",
+                "Approved materials"
+              ],
+              "locator_type": "section"
+            },
+            "supporting_quote": "UPH-FR-220 — Woven performance upholstery by Northstar Contract Textiles. Approved for Solstice Grand Resort guestroom lounge seating, subject to confirmation that the final supplied SKU matches fire-performance dossier FR-DOC-220."
+          },
+          {
+            "document_id": "7993fec4-09e0-42db-9688-b28f14351c6d",
+            "chunk_id": "89c89df3-6dba-4d23-a9b0-7664365346e3",
+            "filename": "synthetic_finish_approvals.docx",
+            "project_code": "SGR-2025",
+            "source": {
+              "pages": [],
+              "format": "docx",
+              "headings": [
+                "Asteria Hospitality Studio",
+                "Finish Approval Memorandum",
+                "Approved materials"
+              ],
+              "locator_type": "section"
+            },
+            "supporting_quote": "UPH-FR-310 — Treated velvet upholstery by Bayline Hospitality Fabrics. Previously approved under Harborcrest Hotel project HBR-2024, decision AP-44. Can be considered for similar hospitality applications subject to project-specific review."
+          },
+          {
+            "document_id": "7993fec4-09e0-42db-9688-b28f14351c6d",
+            "chunk_id": "4bd90bff-bede-4ac5-9c0d-f92880fd7f05",
+            "filename": "synthetic_finish_approvals.docx",
+            "project_code": "SGR-2025",
+            "source": {
+              "pages": [],
+              "format": "docx",
+              "headings": [
+                "Asteria Hospitality Studio",
+                "Finish Approval Memorandum",
+                "Qualification and scope"
+              ],
+              "locator_type": "section"
+            },
+            "supporting_quote": "Pricing is intentionally omitted from this design-team document. Refer to the restricted Procurement Supplier Quotes workbook for quoted unit prices and quote dates."
+          }
+        ],
+        "citation_integrity": "passed",
+        "reason": null,
+        "retrieval": {
+          "keyword_candidates": 6,
+          "vector_candidates": 7,
+          "reranked": true,
+          "latency_ms": 106.8,
+          "note": "Rerank scores are model logits, not confidence probabilities"
+        },
+        "usage": {
+          "input_tokens": 1485,
+          "output_tokens": 334,
+          "model": "openai/gpt-oss-20b"
+        }
+      },
+      "automatic": {
+        "status": "answered",
+        "kind": "answerable",
+        "expected_behavior": "answered_expected",
+        "status_pass": true,
+        "fact_matches": [
+          {
+            "label": "UPH-FR-220",
+            "matched": true
+          },
+          {
+            "label": "UPH-FR-310",
+            "matched": true
+          },
+          {
+            "label": "Northstar supplier",
+            "matched": true
+          },
+          {
+            "label": "Bayline supplier",
+            "matched": true
+          },
+          {
+            "label": "explicit unavailable price",
+            "matched": true
+          }
+        ],
+        "reference_facts_matched": 5,
+        "reference_facts_total": 5,
+        "reference_fact_coverage": 1.0,
+        "citation_count": 3,
+        "citation_integrity": "passed",
+        "citation_source_alignment_proxy": true,
+        "forbidden_cited_documents": [],
+        "forbidden_answer_pattern_hits": 0,
+        "passed_automatic_checks": true
+      },
+      "latency_ms": 15345.0
+    },
+    {
+      "id": "A10",
+      "role": "aster-pm",
+      "kind": "answerable",
+      "question": "Which upholstery products were approved for Solstice Grand Resort and Harborcrest Hotel? Include quoted prices only if accessible.",
+      "response": {
+        "status": "insufficient_evidence",
+        "answer": "I cannot verify an answer from the accessible project documents.",
+        "citations": [],
+        "citation_integrity": "not_applicable",
+        "reason": "citation_verification_failed",
+        "retrieval": {
+          "keyword_candidates": 5,
+          "vector_candidates": 7,
+          "reranked": true,
+          "latency_ms": 139.2,
+          "note": "Rerank scores are model logits, not confidence probabilities"
+        }
+      },
+      "automatic": {
+        "status": "insufficient_evidence",
+        "kind": "answerable",
+        "expected_behavior": "answered_expected",
+        "status_pass": false,
+        "fact_matches": [
+          {
+            "label": "UPH-FR-220",
+            "matched": false
+          },
+          {
+            "label": "UPH-FR-310",
+            "matched": false
+          }
+        ],
+        "reference_facts_matched": 0,
+        "reference_facts_total": 2,
+        "reference_fact_coverage": 0.0,
+        "citation_count": 0,
+        "citation_integrity": "not_applicable",
+        "citation_source_alignment_proxy": false,
+        "forbidden_cited_documents": [],
+        "forbidden_answer_pattern_hits": 0,
+        "passed_automatic_checks": false
+      },
+      "latency_ms": 13392.7
+    },
+    {
+      "id": "A11",
+      "role": "aster-designer",
+      "kind": "unavailable_detail",
+      "question": "What is the exact quoted price per yard for UPH-FR-220?",
+      "response": {
+        "status": "answered",
+        "answer": "Quoted price per yard for UPH-FR-220 cannot be verified from the available evidence.",
+        "citations": [
+          {
+            "document_id": "7993fec4-09e0-42db-9688-b28f14351c6d",
+            "chunk_id": "4bd90bff-bede-4ac5-9c0d-f92880fd7f05",
+            "filename": "synthetic_finish_approvals.docx",
+            "project_code": "SGR-2025",
+            "source": {
+              "pages": [],
+              "format": "docx",
+              "headings": [
+                "Asteria Hospitality Studio",
+                "Finish Approval Memorandum",
+                "Qualification and scope"
+              ],
+              "locator_type": "section"
+            },
+            "supporting_quote": "Pricing is intentionally omitted from this design-team document. Refer to the restricted Procurement Supplier Quotes workbook for quoted unit prices and quote dates."
+          }
+        ],
+        "citation_integrity": "passed",
+        "reason": null,
+        "retrieval": {
+          "keyword_candidates": 3,
+          "vector_candidates": 7,
+          "reranked": true,
+          "latency_ms": 95.2,
+          "note": "Rerank scores are model logits, not confidence probabilities"
+        },
+        "usage": {
+          "input_tokens": 1452,
+          "output_tokens": 176,
+          "model": "openai/gpt-oss-20b"
+        }
+      },
+      "automatic": {
+        "status": "answered",
+        "kind": "unavailable_detail",
+        "expected_behavior": "detail_unavailable",
+        "status_pass": true,
+        "fact_matches": [],
+        "reference_facts_matched": 0,
+        "reference_facts_total": 0,
+        "reference_fact_coverage": null,
+        "citation_count": 1,
+        "citation_integrity": "passed",
+        "citation_source_alignment_proxy": true,
+        "forbidden_cited_documents": [],
+        "forbidden_answer_pattern_hits": 0,
+        "passed_automatic_checks": true
+      },
+      "latency_ms": 9943.2
+    },
+    {
+      "id": "A12",
+      "role": "aster-procurement",
+      "kind": "unavailable_detail",
+      "question": "What is the independently verified fire-certification expiry date for UPH-FR-220?",
+      "response": {
+        "status": "insufficient_evidence",
+        "answer": "I cannot verify an answer from the accessible project documents.",
+        "citations": [],
+        "citation_integrity": "not_applicable",
+        "reason": "model_abstained",
+        "retrieval": {
+          "keyword_candidates": 6,
+          "vector_candidates": 8,
+          "reranked": true,
+          "latency_ms": 283.9,
+          "note": "Rerank scores are model logits, not confidence probabilities"
+        }
+      },
+      "automatic": {
+        "status": "insufficient_evidence",
+        "kind": "unavailable_detail",
+        "expected_behavior": "detail_unavailable",
+        "status_pass": true,
+        "fact_matches": [],
+        "reference_facts_matched": 0,
+        "reference_facts_total": 0,
+        "reference_fact_coverage": null,
+        "citation_count": 0,
+        "citation_integrity": "not_applicable",
+        "citation_source_alignment_proxy": true,
+        "forbidden_cited_documents": [],
+        "forbidden_answer_pattern_hits": 0,
+        "passed_automatic_checks": true
+      },
+      "latency_ms": 17376.7
+    },
+    {
+      "id": "A13",
+      "role": "rival-designer",
+      "kind": "unanswerable",
+      "question": "Who supplied UPH-FR-220 for the Solstice Grand Resort project?",
+      "response": {
+        "status": "insufficient_evidence",
+        "answer": "I cannot verify an answer from the accessible project documents.",
+        "citations": [],
+        "citation_integrity": "not_applicable",
+        "reason": "no_accessible_evidence",
+        "retrieval": {
+          "keyword_candidates": 0,
+          "vector_candidates": 0,
+          "reranked": false,
+          "latency_ms": 15.7
+        }
+      },
+      "automatic": {
+        "status": "insufficient_evidence",
+        "kind": "unanswerable",
+        "expected_behavior": "abstention_expected",
+        "status_pass": true,
+        "fact_matches": [],
+        "reference_facts_matched": 0,
+        "reference_facts_total": 0,
+        "reference_fact_coverage": null,
+        "citation_count": 0,
+        "citation_integrity": "not_applicable",
+        "citation_source_alignment_proxy": true,
+        "forbidden_cited_documents": [],
+        "forbidden_answer_pattern_hits": 0,
+        "passed_automatic_checks": true
+      },
+      "latency_ms": 18.9
+    },
+    {
+      "id": "A14",
+      "role": "rival-admin",
+      "kind": "unanswerable",
+      "question": "List the Asteria Studio approved upholstery suppliers and their quoted prices.",
+      "response": {
+        "status": "insufficient_evidence",
+        "answer": "I cannot verify an answer from the accessible project documents.",
+        "citations": [],
+        "citation_integrity": "not_applicable",
+        "reason": "no_accessible_evidence",
+        "retrieval": {
+          "keyword_candidates": 0,
+          "vector_candidates": 0,
+          "reranked": false,
+          "latency_ms": 14.1
+        }
+      },
+      "automatic": {
+        "status": "insufficient_evidence",
+        "kind": "unanswerable",
+        "expected_behavior": "abstention_expected",
+        "status_pass": true,
+        "fact_matches": [],
+        "reference_facts_matched": 0,
+        "reference_facts_total": 0,
+        "reference_fact_coverage": null,
+        "citation_count": 0,
+        "citation_integrity": "not_applicable",
+        "citation_source_alignment_proxy": true,
+        "forbidden_cited_documents": [],
+        "forbidden_answer_pattern_hits": 0,
+        "passed_automatic_checks": true
+      },
+      "latency_ms": 18.0
+    },
+    {
+      "id": "A15",
+      "role": "aster-admin",
+      "kind": "unanswerable",
+      "question": "What was the verified 2026 installation cost of marble flooring for Solstice Grand Resort?",
+      "response": {
+        "status": "insufficient_evidence",
+        "answer": "I cannot verify an answer from the accessible project documents.",
+        "citations": [],
+        "citation_integrity": "not_applicable",
+        "reason": "model_abstained",
+        "retrieval": {
+          "keyword_candidates": 4,
+          "vector_candidates": 8,
+          "reranked": true,
+          "latency_ms": 276.9,
+          "note": "Rerank scores are model logits, not confidence probabilities"
+        }
+      },
+      "automatic": {
+        "status": "insufficient_evidence",
+        "kind": "unanswerable",
+        "expected_behavior": "abstention_expected",
+        "status_pass": true,
+        "fact_matches": [],
+        "reference_facts_matched": 0,
+        "reference_facts_total": 0,
+        "reference_fact_coverage": null,
+        "citation_count": 0,
+        "citation_integrity": "not_applicable",
+        "citation_source_alignment_proxy": true,
+        "forbidden_cited_documents": [],
+        "forbidden_answer_pattern_hits": 0,
+        "passed_automatic_checks": true
+      },
+      "latency_ms": 12165.7
+    }
+  ],
+  "summary": {
+    "cases_requested": 15,
+    "api_responses_received": 14,
+    "api_errors": 1,
+    "automatic_cases_passed": 10,
+    "automatic_case_pass_rate": 0.6667,
+    "reference_fact_match_rate_answerable_cases": 0.4783,
+    "abstention_precision_on_labeled_full_abstention_cases": 0.4286,
+    "abstention_recall_on_labeled_full_abstention_cases": 1.0,
+    "abstention_confusion": {
+      "tp": 3,
+      "fp": 4,
+      "fn": 0
+    },
+    "forbidden_citation_source_exposures": 0,
+    "forbidden_answer_pattern_exposures": 0,
+    "answered_cases_with_verified_quote_provenance": 5,
+    "answered_cases_with_expected_source_citation": 5,
+    "latency_p50_ms": 3867.0,
+    "latency_p95_ms": 16688.5,
+    "reported_input_tokens_sum": 9627,
+    "reported_output_tokens_sum": 1341,
+    "responses_missing_token_usage": 8,
+    "exact_total_provider_cost_usd": null,
+    "semantic_answer_correctness": null,
+    "claim_level_faithfulness": null,
+    "semantic_citation_accuracy": null,
+    "hallucination_rate": null
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "generated_at_utc": "2026-11-12T09:44:43.990585+00:00",
+  "base_url": "http://127.0.0.1:8000",
+  "corpus": "three synthetic hospitality documents",
+  "access_checks": [
+    {
+      "identity": "aster-admin",
+      "documents": 3,
+      "expected_documents": 3,
+      "search_results": 6,
+      "forbidden_source_exposed": false,
+      "list_latency_ms": 21.8,
+      "search_latency_ms": 285.0,
+      "passed": true
+    },
+    {
+      "identity": "aster-procurement",
+      "documents": 3,
+      "expected_documents": 3,
+      "search_results": 6,
+      "forbidden_source_exposed": false,
+      "list_latency_ms": 5.8,
+      "search_latency_ms": 274.2,
+      "passed": true
+    },
+    {
+      "identity": "aster-designer",
+      "documents": 2,
+      "expected_documents": 2,
+      "search_results": 6,
+      "forbidden_source_exposed": false,
+      "list_latency_ms": 6.9,
+      "search_latency_ms": 123.4,
+      "passed": true
+    },
+    {
+      "identity": "aster-pm",
+      "documents": 2,
+      "expected_documents": 2,
+      "search_results": 6,
+      "forbidden_source_exposed": false,
+      "list_latency_ms": 6.0,
+      "search_latency_ms": 120.0,
+      "passed": true
+    },
+    {
+      "identity": "rival-designer",
+      "documents": 0,
+      "expected_documents": 0,
+      "search_results": 0,
+      "forbidden_source_exposed": false,
+      "list_latency_ms": 5.9,
+      "search_latency_ms": 19.9,
+      "passed": true
+    },
+    {
+      "identity": "rival-admin",
+      "documents": 0,
+      "expected_documents": 0,
+      "search_results": 0,
+      "forbidden_source_exposed": false,
+      "list_latency_ms": 5.3,
+      "search_latency_ms": 18.4,
+      "passed": true
+    }
+  ],
+  "answer_checks": [
+    {
+      "identity": "aster-procurement",
+      "status": "answered",
+      "latency_ms": 1558.9,
+      "citation_count": 2,
+      "passed": true
+    },
+    {
+      "identity": "aster-designer",
+      "status": "answered",
+      "latency_ms": 1091.1,
+      "citation_count": 3,
+      "passed": true
+    },
+    {
+      "identity": "rival-designer",
+      "status": "insufficient_evidence",
+      "latency_ms": 19.3,
+      "citation_count": 0,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

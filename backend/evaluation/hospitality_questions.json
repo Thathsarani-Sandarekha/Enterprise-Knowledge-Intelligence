@@ -1,0 +1,17 @@
+[
+  {"id":"Q01","role":"aster-procurement","question":"What was the quoted unit price of UPH-FR-220 at Solstice Grand Resort?","relevant_files":["synthetic_supplier_quotes.xlsx"],"forbidden_files":[]},
+  {"id":"Q02","role":"aster-procurement","question":"What was the quoted unit price of UPH-FR-310 at Harborcrest Hotel?","relevant_files":["synthetic_supplier_quotes.xlsx"],"forbidden_files":[]},
+  {"id":"Q03","role":"aster-procurement","question":"Compare the supplier lead times of UPH-FR-220 and UPH-FR-310.","relevant_files":["synthetic_supplier_quotes.xlsx"],"forbidden_files":[]},
+  {"id":"Q04","role":"aster-procurement","question":"Which standard cotton blend was rejected for guestroom use and why?","relevant_files":["synthetic_supplier_quotes.xlsx"],"forbidden_files":[]},
+  {"id":"Q05","role":"aster-admin","question":"What design material was approved under decision AP-17?","relevant_files":["synthetic_finish_approvals.docx"],"forbidden_files":[]},
+  {"id":"Q06","role":"aster-admin","question":"Which earlier hospitality renovation used UPH-FR-310?","relevant_files":["synthetic_finish_approvals.docx"],"forbidden_files":[]},
+  {"id":"Q07","role":"aster-designer","question":"Which woven upholstery product was approved for Solstice Grand Resort guestroom lounge seating?","relevant_files":["synthetic_finish_approvals.docx"],"forbidden_files":["synthetic_supplier_quotes.xlsx"]},
+  {"id":"Q08","role":"aster-designer","question":"What approval condition applies to the final UPH-FR-220 SKU?","relevant_files":["synthetic_finish_approvals.docx"],"forbidden_files":["synthetic_supplier_quotes.xlsx"]},
+  {"id":"Q09","role":"aster-designer","question":"Which fire-performance supplier dossier is recorded for UPH-FR-220?","relevant_files":["synthetic_fire_document_register.pdf"],"forbidden_files":["synthetic_supplier_quotes.xlsx"]},
+  {"id":"Q10","role":"aster-pm","question":"What supplier fire-performance dossier was received for the Harborcrest Hotel upholstery?","relevant_files":["synthetic_fire_document_register.pdf"],"forbidden_files":["synthetic_supplier_quotes.xlsx"]},
+  {"id":"Q11","role":"aster-pm","question":"Where does the finish approval memorandum say quoted prices can be found?","relevant_files":["synthetic_finish_approvals.docx"],"forbidden_files":["synthetic_supplier_quotes.xlsx"]},
+  {"id":"Q12","role":"aster-procurement","question":"Who supplied UPH-FR-310 and what is its lead time in days?","relevant_files":["synthetic_supplier_quotes.xlsx"],"forbidden_files":[]},
+  {"id":"Q13","role":"aster-designer","question":"What are the restricted supplier quote spreadsheet prices for the two upholstery fabrics?","relevant_files":[],"forbidden_files":["synthetic_supplier_quotes.xlsx"]},
+  {"id":"Q14","role":"rival-designer","question":"Find the Solstice Grand Resort UPH-FR-220 renovation supplier information.","relevant_files":[],"forbidden_files":["synthetic_finish_approvals.docx","synthetic_fire_document_register.pdf","synthetic_supplier_quotes.xlsx"],"expected_empty":true},
+  {"id":"Q15","role":"rival-admin","question":"List Asteria Studio fire-rated upholstery supplier quotations.","relevant_files":[],"forbidden_files":["synthetic_finish_approvals.docx","synthetic_fire_document_register.pdf","synthetic_supplier_quotes.xlsx"],"expected_empty":true}
+]

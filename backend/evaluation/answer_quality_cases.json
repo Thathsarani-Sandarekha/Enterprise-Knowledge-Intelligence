@@ -1,0 +1,99 @@
+[
+  {
+    "id": "A01", "role": "aster-procurement", "kind": "answerable",
+    "question": "What was the quoted unit price of UPH-FR-220 for Solstice Grand Resort?",
+    "facts": [{"label": "UPH-FR-220", "pattern": "UPH[-‑– ]?FR[-‑– ]?220"}, {"label": "USD 145", "pattern": "(?<![0-9])(?:\\$\\s*145|USD\\s*145|145\\s*(?:USD|dollars?|per\\s+yard|/\\s*yard))\\b"}],
+    "expected_sources": ["synthetic_supplier_quotes.xlsx"]
+  },
+  {
+    "id": "A02", "role": "aster-procurement", "kind": "answerable",
+    "question": "What was the quoted unit price of UPH-FR-310 for Harborcrest Hotel?",
+    "facts": [{"label": "UPH-FR-310", "pattern": "UPH[-‑– ]?FR[-‑– ]?310"}, {"label": "USD 189", "pattern": "(?<![0-9])(?:\\$\\s*189|USD\\s*189|189\\s*(?:USD|dollars?|per\\s+yard|/\\s*yard))\\b"}],
+    "expected_sources": ["synthetic_supplier_quotes.xlsx"]
+  },
+  {
+    "id": "A03", "role": "aster-procurement", "kind": "answerable",
+    "question": "Compare the quoted unit prices and supplier lead times of UPH-FR-220 and UPH-FR-310.",
+    "facts": [{"label": "first product", "pattern": "UPH[-‑– ]?FR[-‑– ]?220"}, {"label": "second product", "pattern": "UPH[-‑– ]?FR[-‑– ]?310"}, {"label": "USD 145", "pattern": "(?<![0-9])(?:\\$\\s*145|USD\\s*145|145\\s*(?:USD|dollars?|per\\s+yard|/\\s*yard))\\b"}, {"label": "USD 189", "pattern": "(?<![0-9])(?:\\$\\s*189|USD\\s*189|189\\s*(?:USD|dollars?|per\\s+yard|/\\s*yard))\\b"}, {"label": "21-day lead time", "pattern": "\\b21[ -]?(?:day|days)\\b"}, {"label": "28-day lead time", "pattern": "\\b28[ -]?(?:day|days)\\b"}],
+    "expected_sources": ["synthetic_supplier_quotes.xlsx"]
+  },
+  {
+    "id": "A04", "role": "aster-procurement", "kind": "answerable",
+    "question": "Which standard cotton blend was rejected for guestroom use, and why?",
+    "facts": [{"label": "rejected product", "pattern": "UPH[-‑– ]?NF[-‑– ]?125"}, {"label": "rejection", "pattern": "reject(?:ed|ion)?"}, {"label": "missing dossier", "pattern": "(?:no|lack(?:s|ing)?|without|missing|not\\s+(?:provided|available))[^.\\n]{0,100}(?:fire|dossier|test)"}],
+    "expected_sources": ["synthetic_supplier_quotes.xlsx"]
+  },
+  {
+    "id": "A05", "role": "aster-admin", "kind": "answerable",
+    "question": "What material was approved in design decision AP-17?",
+    "facts": [{"label": "UPH-FR-220", "pattern": "UPH[-‑– ]?FR[-‑– ]?220"}],
+    "expected_sources": ["synthetic_finish_approvals.docx"]
+  },
+  {
+    "id": "A06", "role": "aster-admin", "kind": "answerable",
+    "question": "Which earlier hotel renovation project used the approved UPH-FR-310 upholstery?",
+    "facts": [{"label": "Harborcrest Hotel", "pattern": "Harborcrest\\s+Hotel"}],
+    "expected_sources": ["synthetic_finish_approvals.docx"]
+  },
+  {
+    "id": "A07", "role": "aster-designer", "kind": "answerable",
+    "question": "Which upholstery was approved for Solstice Grand Resort guestroom lounge seating, and what SKU verification condition applies?",
+    "facts": [{"label": "UPH-FR-220", "pattern": "UPH[-‑– ]?FR[-‑– ]?220"}, {"label": "FR-DOC-220", "pattern": "FR[-‑– ]?DOC[-‑– ]?220"}, {"label": "confirm final supplied SKU", "pattern": "(?:final|supplied)[^.\\n]{0,90}(?:SKU|item)[^.\\n]{0,90}(?:match|confirm|verif)|(?:match|confirm|verif)[^.\\n]{0,90}(?:final|supplied)[^.\\n]{0,90}SKU"}],
+    "expected_sources": ["synthetic_finish_approvals.docx"],
+    "forbidden_sources": ["synthetic_supplier_quotes.xlsx"]
+  },
+  {
+    "id": "A08", "role": "aster-pm", "kind": "answerable",
+    "question": "What supplier fire-performance dossier is recorded for the Harborcrest Hotel upholstery?",
+    "facts": [{"label": "FR-DOC-310", "pattern": "FR[-‑– ]?DOC[-‑– ]?310"}],
+    "expected_sources": ["synthetic_fire_document_register.pdf"],
+    "forbidden_sources": ["synthetic_supplier_quotes.xlsx"]
+  },
+  {
+    "id": "A09", "role": "aster-designer", "kind": "answerable",
+    "question": "Find approved upholstery for previous luxury hotel renovations, naming suppliers and quoted prices where available.",
+    "facts": [{"label": "UPH-FR-220", "pattern": "UPH[-‑– ]?FR[-‑– ]?220"}, {"label": "UPH-FR-310", "pattern": "UPH[-‑– ]?FR[-‑– ]?310"}, {"label": "Northstar supplier", "pattern": "Northstar\\s+Contract\\s+Textiles"}, {"label": "Bayline supplier", "pattern": "Bayline\\s+Hospitality\\s+Fabrics"}, {"label": "explicit unavailable price", "pattern": "(?:price|pricing|quote)[^.\\n]{0,110}(?:not\\s+(?:available|provided|accessible|included)|cannot\\s+(?:be\\s+)?verif|omitted|restricted|unavailable)|(?:not\\s+(?:available|provided)|cannot\\s+(?:be\\s+)?verif)[^.\\n]{0,110}(?:price|pricing|quote)"}],
+    "expected_sources": ["synthetic_finish_approvals.docx"],
+    "forbidden_sources": ["synthetic_supplier_quotes.xlsx"],
+    "forbidden_answer_patterns": ["(?<![0-9])(?:\\$\\s*(?:145|189)|USD\\s*(?:145|189)|(?:145|189)\\s*(?:USD|dollars?|per\\s+yard|/\\s*yard))\\b"]
+  },
+  {
+    "id": "A10", "role": "aster-pm", "kind": "answerable",
+    "question": "Which upholstery products were approved for Solstice Grand Resort and Harborcrest Hotel? Include quoted prices only if accessible.",
+    "facts": [{"label": "UPH-FR-220", "pattern": "UPH[-‑– ]?FR[-‑– ]?220"}, {"label": "UPH-FR-310", "pattern": "UPH[-‑– ]?FR[-‑– ]?310"}],
+    "expected_sources": ["synthetic_finish_approvals.docx"],
+    "forbidden_sources": ["synthetic_supplier_quotes.xlsx"],
+    "forbidden_answer_patterns": ["(?<![0-9])(?:\\$\\s*(?:145|189)|USD\\s*(?:145|189)|(?:145|189)\\s*(?:USD|dollars?|per\\s+yard|/\\s*yard))\\b"]
+  },
+  {
+    "id": "A11", "role": "aster-designer", "kind": "unavailable_detail",
+    "question": "What is the exact quoted price per yard for UPH-FR-220?",
+    "facts": [], "expected_sources": [],
+    "forbidden_sources": ["synthetic_supplier_quotes.xlsx"],
+    "forbidden_answer_patterns": ["(?<![0-9])(?:\\$\\s*145|USD\\s*145|145\\s*(?:USD|dollars?|per\\s+yard|/\\s*yard))\\b"],
+    "missing_detail_pattern": "(?:not\\s+(?:available|provided|accessible|included)|cannot\\s+(?:be\\s+)?verif|omitted|restricted|unknown|no\\s+(?:access|price|pricing)|unavailable)"
+  },
+  {
+    "id": "A12", "role": "aster-procurement", "kind": "unavailable_detail",
+    "question": "What is the independently verified fire-certification expiry date for UPH-FR-220?",
+    "facts": [], "expected_sources": [],
+    "missing_detail_pattern": "(?:not\\s+(?:available|provided|verified|documented)|cannot\\s+(?:be\\s+)?verif|unavailable|unknown|no\\s+(?:confirmed|verified|evidence|expiration|expiry)|does\\s+not\\s+(?:establish|specify|provide))"
+  },
+  {
+    "id": "A13", "role": "rival-designer", "kind": "unanswerable",
+    "question": "Who supplied UPH-FR-220 for the Solstice Grand Resort project?",
+    "facts": [], "expected_sources": [],
+    "forbidden_sources": ["synthetic_finish_approvals.docx", "synthetic_fire_document_register.pdf", "synthetic_supplier_quotes.xlsx"]
+  },
+  {
+    "id": "A14", "role": "rival-admin", "kind": "unanswerable",
+    "question": "List the Asteria Studio approved upholstery suppliers and their quoted prices.",
+    "facts": [], "expected_sources": [],
+    "forbidden_sources": ["synthetic_finish_approvals.docx", "synthetic_fire_document_register.pdf", "synthetic_supplier_quotes.xlsx"]
+  },
+  {
+    "id": "A15", "role": "aster-admin", "kind": "unanswerable",
+    "question": "What was the verified 2026 installation cost of marble flooring for Solstice Grand Resort?",
+    "facts": [], "expected_sources": []
+  }
+]

@@ -1,0 +1,23 @@
+name: S3 Storage Adapter Unit Tests
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  s3-storage-tests:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Install isolated adapter-test dependencies
+        run: python -m pip install pytest python-dotenv -r requirements-s3.txt
+      - name: Run mocked S3 and local storage tests
+        run: python -m pytest -q tests/test_s3_storage_adapter.py
