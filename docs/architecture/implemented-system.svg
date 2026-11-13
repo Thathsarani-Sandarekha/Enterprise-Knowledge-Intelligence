@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="full" height="1260" version="1.1" viewBox="0 0 2000 1260" width="2000">
+  <defs/>
+  <rect fill="#071725" height="1260" width="2000" x="0" y="0"/>
+  <rect fill="#0B2033" height="158" width="2000" x="0" y="0"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="0" x2="0" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="80" x2="80" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="160" x2="160" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="240" x2="240" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="320" x2="320" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="400" x2="400" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="480" x2="480" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="560" x2="560" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="640" x2="640" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="720" x2="720" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="800" x2="800" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="880" x2="880" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="960" x2="960" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="1040" x2="1040" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="1120" x2="1120" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="1200" x2="1200" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="1280" x2="1280" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="1360" x2="1360" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="1440" x2="1440" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="1520" x2="1520" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="1600" x2="1600" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="1680" x2="1680" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="1760" x2="1760" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="1840" x2="1840" y1="0" y2="158"/>
+  <line opacity="0.6" stroke="#17324A" stroke-width="0.6" x1="1920" x2="1920" y1="0" y2="158"/>
+  <text fill="#FFAD42" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="2.2" x="60" y="38">ASTERIA / TECHNICAL ARCHITECTURE</text>
+  <text fill="#F3F8FC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="45" font-weight="800" x="60" y="96">Implemented platform</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="400" x="62" y="132">Real application services, AWS SDK integration and evidence-grounded retrieval</text>
+  <rect fill="#102B45" height="48" opacity="1" rx="16" ry="16" stroke="#37516B" stroke-width="1" width="299" x="1640" y="53"/>
+  <text fill="#F3F8FC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="16" font-weight="700" text-anchor="middle" x="1789" y="84">IMPLEMENTED / CODE</text>
+  <line opacity="1" stroke="#33506B" stroke-linecap="round" stroke-width="1" x1="60" x2="1940" y1="159" y2="159"/>
+  <rect fill="#0D243A" height="203" opacity="1" rx="20" ry="20" stroke="#26455E" stroke-width="1.2" width="1904" x="48" y="194"/>
+  <rect fill="#4AD9D6" height="34" opacity="1" rx="10" ry="10" stroke="none" stroke-width="1" width="45" x="68" y="215"/>
+  <text fill="#071725" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="800" text-anchor="middle" x="90.5" y="238">01</text>
+  <text fill="#F3F8FC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" x="129" y="238">Experience &amp; API</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="500" text-anchor="end" x="1926" y="238">application service boundary</text>
+  <line opacity="1" stroke="#33506B" stroke-linecap="round" stroke-width="1" x1="71" x2="1929" y1="262" y2="262"/>
+  <rect fill="#102B45" height="97" opacity="1" rx="15" ry="15" stroke="#365572" stroke-width="1.1" width="400" x="80" y="285"/>
+  <rect fill="#183B57" height="50" opacity="1" rx="11" ry="11" stroke="none" stroke-width="1" width="50" x="96" y="303"/>
+  <rect fill="none" height="22.235294117647058" opacity="1" rx="2.4705882352941178" ry="2.4705882352941178" stroke="#61A5FA" stroke-width="2" width="28.0" x="107.0" y="317.29411764705884"/>
+  <line opacity="1" stroke="#61A5FA" stroke-linecap="round" stroke-width="1.8" x1="107.82352941176471" x2="134.1764705882353" y1="324.70588235294116" y2="324.70588235294116"/>
+  <circle cx="111.94117647058823" cy="320.5882352941176" fill="#61A5FA" r="0.988235294117647" stroke="none" stroke-width="1"/>
+  <circle cx="116.05882352941177" cy="320.5882352941176" fill="#61A5FA" r="0.988235294117647" stroke="none" stroke-width="1"/>
+  <circle cx="120.17647058823529" cy="320.5882352941176" fill="#61A5FA" r="0.988235294117647" stroke="none" stroke-width="1"/>
+  <text fill="#F3F8FC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="800" x="162" y="326">Next.js workspace</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" x="162" y="354">Studio roles • document library</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" x="162" y="375">Search, Q&amp;A, grouped citations</text>
+  <rect fill="#102B45" height="97" opacity="1" rx="15" ry="15" stroke="#365572" stroke-width="1.1" width="400" x="558" y="285"/>
+  <rect fill="#183B57" height="50" opacity="1" rx="11" ry="11" stroke="none" stroke-width="1" width="50" x="574" y="303"/>
+  <circle cx="589.9411764705883" cy="320.5882352941176" fill="none" r="3.2941176470588234" stroke="#4AD9D6" stroke-width="2"/>
+  <circle cx="608.0588235294117" cy="320.5882352941176" fill="none" r="3.2941176470588234" stroke="#4AD9D6" stroke-width="2"/>
+  <circle cx="599.0" cy="337.88235294117646" fill="none" r="3.2941176470588234" stroke="#4AD9D6" stroke-width="2"/>
+  <line opacity="1" stroke="#4AD9D6" stroke-linecap="round" stroke-width="2" x1="592.4117647058823" x2="598.1764705882352" y1="323.05882352941177" y2="333.7647058823529"/>
+  <line opacity="1" stroke="#4AD9D6" stroke-linecap="round" stroke-width="2" x1="605.5882352941177" x2="599.8235294117648" y1="323.05882352941177" y2="333.7647058823529"/>
+  <line opacity="1" stroke="#4AD9D6" stroke-linecap="round" stroke-width="2" x1="593.2352941176471" x2="604.7647058823529" y1="320.5882352941176" y2="320.5882352941176"/>
+  <text fill="#F3F8FC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="800" x="640" y="326">Server-side gateway</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" x="640" y="354">REST proxy / API key handling</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" x="640" y="375">Frontend → FastAPI</text>
+  <rect fill="#102B45" height="97" opacity="1" rx="15" ry="15" stroke="#365572" stroke-width="1.1" width="400" x="1036" y="285"/>
+  <rect fill="#183B57" height="50" opacity="1" rx="11" ry="11" stroke="none" stroke-width="1" width="50" x="1052" y="303"/>
+  <circle cx="1067.9411764705883" cy="320.5882352941176" fill="none" r="3.2941176470588234" stroke="#6BE3AF" stroke-width="2"/>
+  <circle cx="1086.0588235294117" cy="320.5882352941176" fill="none" r="3.2941176470588234" stroke="#6BE3AF" stroke-width="2"/>
+  <circle cx="1077.0" cy="337.88235294117646" fill="none" r="3.2941176470588234" stroke="#6BE3AF" stroke-width="2"/>
+  <line opacity="1" stroke="#6BE3AF" stroke-linecap="round" stroke-width="2" x1="1070.4117647058824" x2="1076.1764705882354" y1="323.05882352941177" y2="333.7647058823529"/>
+  <line opacity="1" stroke="#6BE3AF" stroke-linecap="round" stroke-width="2" x1="1083.5882352941176" x2="1077.8235294117646" y1="323.05882352941177" y2="333.7647058823529"/>
+  <line opacity="1" stroke="#6BE3AF" stroke-linecap="round" stroke-width="2" x1="1071.235294117647" x2="1082.764705882353" y1="320.5882352941176" y2="320.5882352941176"/>
+  <text fill="#F3F8FC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="800" x="1118" y="326">FastAPI services</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" x="1118" y="354">Upload • documents • search</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" x="1118" y="375">Knowledge questions</text>
+  <rect fill="#102B45" height="97" opacity="1" rx="15" ry="15" stroke="#365572" stroke-width="1.1" width="400" x="1514" y="285"/>
+  <rect fill="#183B57" height="50" opacity="1" rx="11" ry="11" stroke="none" stroke-width="1" width="50" x="1530" y="303"/>
+  <path d="M1555 314.0 L1566.5294117647059 319.7647058823529 L1564.8823529411766 334.5882352941176 Q1555 344.47058823529414 1545.1176470588234 334.5882352941176 L1543.4705882352941 319.7647058823529 Z" fill="none" stroke="#C4A2FF" stroke-linejoin="round" stroke-width="2.4"/>
+  <path d="M1550.8823529411766 328 L1554.1764705882354 332.11764705882354 L1560.764705882353 323.88235294117646" fill="none" stroke="#C4A2FF" stroke-width="2.2"/>
+  <text fill="#F3F8FC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="17" font-weight="800" x="1596" y="326">Tenant &amp; role grants</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" x="1596" y="354">SQL-scoped document access</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" x="1596" y="375">Simulated demo identities</text>
+  <polyline fill="none" opacity="1" points="480,333 558,333" stroke="#4AD9D6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"/>
+  <polygon fill="#4AD9D6" opacity="1" points="558,333 547.0,327.8 547.0,338.2"/>
+  <polyline fill="none" opacity="1" points="958,333 1036,333" stroke="#4AD9D6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"/>
+  <polygon fill="#4AD9D6" opacity="1" points="1036,333 1025.0,327.8 1025.0,338.2"/>
+  <polyline fill="none" opacity="1" points="1436,333 1514,333" stroke="#4AD9D6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"/>
+  <polygon fill="#4AD9D6" opacity="1" points="1514,333 1503.0,327.8 1503.0,338.2"/>
+  <rect fill="#0D243A" height="335" opacity="1" rx="20" ry="20" stroke="#26455E" stroke-width="1.2" width="1904" x="48" y="419"/>
+  <rect fill="#FFAD42" height="34" opacity="1" rx="10" ry="10" stroke="none" stroke-width="1" width="45" x="68" y="440"/>
+  <text fill="#071725" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="800" text-anchor="middle" x="90.5" y="463">02</text>
+  <text fill="#F3F8FC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" x="129" y="463">Document intelligence pipeline</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="500" text-anchor="end" x="1926" y="463">PDF · DOCX · XLSX → indexed knowledge</text>
+  <line opacity="1" stroke="#33506B" stroke-linecap="round" stroke-width="1" x1="71" x2="1929" y1="487" y2="487"/>
+  <rect fill="#102B45" height="128" opacity="1" rx="15" ry="15" stroke="#365572" stroke-width="1.1" width="330" x="75" y="527"/>
+  <rect fill="#183B57" height="50" opacity="1" rx="11" ry="11" stroke="none" stroke-width="1" width="50" x="91" y="545"/>
+  <path d="M106.11764705882354 556.8235294117648 L120.11764705882354 556.8235294117648 L126.70588235294117 563.4117647058823 L126.70588235294117 584.0 L106.11764705882354 584.0 Z M120.11764705882354 556.8235294117648 L120.11764705882354 563.4117647058823 L126.70588235294117 563.4117647058823" fill="none" stroke="#61A5FA" stroke-linejoin="round" stroke-width="2.2"/>
+  <line opacity="1" stroke="#61A5FA" stroke-linecap="round" stroke-width="2" x1="111.88235294117646" x2="120.94117647058823" y1="570.8235294117648" y2="570.8235294117648"/>
+  <line opacity="1" stroke="#61A5FA" stroke-linecap="round" stroke-width="2" x1="111.88235294117646" x2="120.94117647058823" y1="576.5882352941177" y2="576.5882352941177"/>
+  <text fill="#F3F8FC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="800" x="157" y="570">Upload &amp; validate</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" x="157" y="601">File checks • SHA-256</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" x="157" y="622">Queue metadata and grants</text>
+  <rect fill="#102B45" height="128" opacity="1" rx="15" ry="15" stroke="#365572" stroke-width="1.1" width="330" x="455" y="527"/>
+  <rect fill="#183B57" height="50" opacity="1" rx="11" ry="11" stroke="none" stroke-width="1" width="50" x="471" y="545"/>
+  <path d="M 484.47058823529414 575.7647058823529 C 474.5882352941176 575.7647058823529, 477.88235294117646 565.8823529411765, 486.11764705882354 565.8823529411765 C 489.4117647058824 553.5294117647059, 502.5882352941176 555.1764705882352, 505.88235294117646 564.2352941176471 C 519.0588235294117 564.2352941176471, 516.5882352941177 576.5882352941177, 506.70588235294116 576.5882352941177 Z" fill="none" stroke="#FFAD42" stroke-linejoin="round" stroke-width="2.3"/>
+  <line opacity="1" stroke="#FFAD42" stroke-linecap="round" stroke-width="2" x1="491.05882352941177" x2="501.7647058823529" y1="571.6470588235294" y2="571.6470588235294"/>
+  <text fill="#F3F8FC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="800" x="537" y="570">AWS S3 integration</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" x="537" y="601">Boto3 object adapter</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" x="537" y="622">Filesystem fallback</text>
+  <rect fill="#102B45" height="128" opacity="1" rx="15" ry="15" stroke="#365572" stroke-width="1.1" width="330" x="835" y="527"/>
+  <rect fill="#183B57" height="50" opacity="1" rx="11" ry="11" stroke="none" stroke-width="1" width="50" x="851" y="545"/>
+  <rect fill="none" height="21.41176470588235" opacity="1" rx="3.2941176470588234" ry="3.2941176470588234" stroke="#C4A2FF" stroke-width="2.2" width="21.41176470588235" x="865.2941176470588" y="559.2941176470588"/>
+  <rect fill="none" height="11.529411764705882" opacity="1" rx="1.6470588235294117" ry="1.6470588235294117" stroke="#C4A2FF" stroke-width="2" width="11.529411764705882" x="870.2352941176471" y="564.2352941176471"/>
+  <line opacity="1" stroke="#C4A2FF" stroke-linecap="round" stroke-width="1.8" x1="869.4117647058823" x2="869.4117647058823" y1="555.1764705882352" y2="559.2941176470588"/>
+  <line opacity="1" stroke="#C4A2FF" stroke-linecap="round" stroke-width="1.8" x1="869.4117647058823" x2="869.4117647058823" y1="580.7058823529412" y2="584.8235294117648"/>
+  <line opacity="1" stroke="#C4A2FF" stroke-linecap="round" stroke-width="1.8" x1="876.0" x2="876.0" y1="555.1764705882352" y2="559.2941176470588"/>
+  <line opacity="1" stroke="#C4A2FF" stroke-linecap="round" stroke-width="1.8" x1="876.0" x2="876.0" y1="580.7058823529412" y2="584.8235294117648"/>
+  <line opacity="1" stroke="#C4A2FF" stroke-linecap="round" stroke-width="1.8" x1="882.5882352941177" x2="882.5882352941177" y1="555.1764705882352" y2="559.2941176470588"/>
+  <line opacity="1" stroke="#C4A2FF" stroke-linecap="round" stroke-width="1.8" x1="882.5882352941177" x2="882.5882352941177" y1="580.7058823529412" y2="584.8235294117648"/>
+  <text fill="#F3F8FC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="800" x="917" y="570">Python worker</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" x="917" y="601">Persistent DB job queue</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" x="917" y="622">Queued → ready / failed</text>
+  <rect fill="#102B45" height="128" opacity="1" rx="15" ry="15" stroke="#365572" stroke-width="1.1" width="330" x="1215" y="527"/>
+  <rect fill="#183B57" height="50" opacity="1" rx="11" ry="11" stroke="none" stroke-width="1" width="50" x="1231" y="545"/>
+  <path d="M1246.1176470588234 556.8235294117648 L1260.1176470588234 556.8235294117648 L1266.7058823529412 563.4117647058823 L1266.7058823529412 584.0 L1246.1176470588234 584.0 Z M1260.1176470588234 556.8235294117648 L1260.1176470588234 563.4117647058823 L1266.7058823529412 563.4117647058823" fill="none" stroke="#6BE3AF" stroke-linejoin="round" stroke-width="2.2"/>
+  <line opacity="1" stroke="#6BE3AF" stroke-linecap="round" stroke-width="2" x1="1251.8823529411766" x2="1260.9411764705883" y1="570.8235294117648" y2="570.8235294117648"/>
+  <line opacity="1" stroke="#6BE3AF" stroke-linecap="round" stroke-width="2" x1="1251.8823529411766" x2="1260.9411764705883" y1="576.5882352941177" y2="576.5882352941177"/>
+  <text fill="#F3F8FC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="800" x="1297" y="570">Docling + OpenPyXL</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" x="1297" y="601">OCR / parsing • chunks</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" x="1297" y="622">Source locations retained</text>
+  <rect fill="#102B45" height="128" opacity="1" rx="15" ry="15" stroke="#365572" stroke-width="1.1" width="330" x="1595" y="527"/>
+  <rect fill="#183B57" height="50" opacity="1" rx="11" ry="11" stroke="none" stroke-width="1" width="50" x="1611" y="545"/>
+  <path d="M1624.4705882352941 562.5882352941177 L1636 558.4705882352941 L1647.5294117647059 562.5882352941177 L1636 566.7058823529412 Z" fill="none" stroke="#4AD9D6" stroke-linejoin="round" stroke-width="1.9"/>
+  <path d="M1624.4705882352941 570.0 L1636 565.8823529411765 L1647.5294117647059 570.0 L1636 574.1176470588235 Z" fill="none" stroke="#4AD9D6" stroke-linejoin="round" stroke-width="1.9"/>
+  <path d="M1624.4705882352941 577.4117647058823 L1636 573.2941176470588 L1647.5294117647059 577.4117647058823 L1636 581.5294117647059 Z" fill="none" stroke="#4AD9D6" stroke-linejoin="round" stroke-width="1.9"/>
+  <text fill="#F3F8FC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="800" x="1677" y="570">Sentence embeddings</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" x="1677" y="601">Local model • 384-D</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" x="1677" y="622">SQL + vector indexing</text>
+  <polyline fill="none" opacity="1" points="405,588 455,588" stroke="#FFAD42" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"/>
+  <polygon fill="#FFAD42" opacity="1" points="455,588 444.0,582.8 444.0,593.2"/>
+  <polyline fill="none" opacity="1" points="785,588 835,588" stroke="#61A5FA" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"/>
+  <polygon fill="#61A5FA" opacity="1" points="835,588 824.0,582.8 824.0,593.2"/>
+  <polyline fill="none" opacity="1" points="1165,588 1215,588" stroke="#61A5FA" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"/>
+  <polygon fill="#61A5FA" opacity="1" points="1215,588 1204.0,582.8 1204.0,593.2"/>
+  <polyline fill="none" opacity="1" points="1545,588 1595,588" stroke="#61A5FA" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"/>
+  <polygon fill="#61A5FA" opacity="1" points="1595,588 1584.0,582.8 1584.0,593.2"/>
+  <rect fill="#172F46" height="50" opacity="1" rx="14" ry="14" stroke="#365572" stroke-width="1" width="1480" x="260" y="685"/>
+  <ellipse cx="297" cy="703.8235294117648" fill="none" rx="8.029411764705882" ry="3.088235294117647" stroke="#6BE3AF" stroke-width="2.3"/>
+  <line opacity="1" stroke="#6BE3AF" stroke-linecap="round" stroke-width="2.3" x1="288.97058823529414" x2="288.97058823529414" y1="703.8235294117648" y2="716.1764705882352"/>
+  <line opacity="1" stroke="#6BE3AF" stroke-linecap="round" stroke-width="2.3" x1="305.02941176470586" x2="305.02941176470586" y1="703.8235294117648" y2="716.1764705882352"/>
+  <path d="M 288.97058823529414 716.1764705882352 C 292.05882352941177 720.5, 301.94117647058823 720.5, 305.02941176470586 716.1764705882352" fill="none" stroke="#6BE3AF" stroke-width="2.3"/>
+  <path d="M 288.97058823529414 710 C 292.6764705882353 713.7058823529412, 301.3235294117647 713.7058823529412, 305.02941176470586 710" fill="none" stroke="#6BE3AF" stroke-width="2"/>
+  <text fill="#F3F8FC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="18" font-weight="800" x="330" y="716">POSTGRESQL + PGVECTOR</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="500" x="725" y="715">document metadata  •  roles &amp; tenant grants  •  text search  •  384-D embeddings</text>
+  <polyline fill="none" opacity="1" points="1760,654 1760,711 1740,711" stroke="#6BE3AF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+  <polygon fill="#6BE3AF" opacity="1" points="1740,711 1751.0,716.2 1751.0,705.8"/>
+  <rect fill="#0D243A" height="369" opacity="1" rx="20" ry="20" stroke="#26455E" stroke-width="1.2" width="1904" x="48" y="779"/>
+  <rect fill="#61A5FA" height="34" opacity="1" rx="10" ry="10" stroke="none" stroke-width="1" width="45" x="68" y="800"/>
+  <text fill="#071725" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="800" text-anchor="middle" x="90.5" y="823">03</text>
+  <text fill="#F3F8FC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="700" x="129" y="823">Permission-aware RAG &amp; answer generation</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="500" text-anchor="end" x="1926" y="823">only authorized excerpts reach Groq</text>
+  <line opacity="1" stroke="#33506B" stroke-linecap="round" stroke-width="1" x1="71" x2="1929" y1="847" y2="847"/>
+  <rect fill="#102B45" height="149" opacity="1" rx="15" ry="15" stroke="#365572" stroke-width="1.1" width="330" x="72" y="887"/>
+  <rect fill="#183B57" height="50" opacity="1" rx="11" ry="11" stroke="none" stroke-width="1" width="50" x="88" y="905"/>
+  <path d="M113 916.0 L124.52941176470588 921.7647058823529 L122.88235294117646 936.5882352941177 Q113 946.4705882352941 103.11764705882354 936.5882352941177 L101.47058823529412 921.7647058823529 Z" fill="none" stroke="#C4A2FF" stroke-linejoin="round" stroke-width="2.4"/>
+  <path d="M108.88235294117646 930 L112.17647058823529 934.1176470588235 L118.76470588235294 925.8823529411765" fill="none" stroke="#C4A2FF" stroke-width="2.2"/>
+  <text fill="#F3F8FC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="800" x="154" y="930">Scoped retrieval</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" x="154" y="961">Tenant + role predicates</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" x="154" y="982">Apply before candidate ranking</text>
+  <rect fill="#102B45" height="149" opacity="1" rx="15" ry="15" stroke="#365572" stroke-width="1.1" width="330" x="453" y="887"/>
+  <rect fill="#183B57" height="50" opacity="1" rx="11" ry="11" stroke="none" stroke-width="1" width="50" x="469" y="905"/>
+  <circle cx="490.70588235294116" cy="925.8823529411765" fill="none" r="8.235294117647058" stroke="#61A5FA" stroke-width="2.3"/>
+  <line opacity="1" stroke="#61A5FA" stroke-linecap="round" stroke-width="2.5" x1="497.29411764705884" x2="508.0" y1="933.2941176470588" y2="944.0"/>
+  <text fill="#F3F8FC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="800" x="535" y="930">Hybrid search</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" x="535" y="961">Postgres full-text + pgvector</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" x="535" y="982">Lexical and semantic branches</text>
+  <rect fill="#102B45" height="149" opacity="1" rx="15" ry="15" stroke="#365572" stroke-width="1.1" width="330" x="834" y="887"/>
+  <rect fill="#183B57" height="50" opacity="1" rx="11" ry="11" stroke="none" stroke-width="1" width="50" x="850" y="905"/>
+  <path d="M863.4705882352941 922.5882352941177 L875 918.4705882352941 L886.5294117647059 922.5882352941177 L875 926.7058823529412 Z" fill="none" stroke="#4AD9D6" stroke-linejoin="round" stroke-width="1.9"/>
+  <path d="M863.4705882352941 930.0 L875 925.8823529411765 L886.5294117647059 930.0 L875 934.1176470588235 Z" fill="none" stroke="#4AD9D6" stroke-linejoin="round" stroke-width="1.9"/>
+  <path d="M863.4705882352941 937.4117647058823 L875 933.2941176470588 L886.5294117647059 937.4117647058823 L875 941.5294117647059 Z" fill="none" stroke="#4AD9D6" stroke-linejoin="round" stroke-width="1.9"/>
+  <text fill="#F3F8FC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="800" x="916" y="930">RRF + reranking</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" x="916" y="961">Reciprocal rank fusion</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" x="916" y="982">Cross-encoder passage scoring</text>
+  <rect fill="#102B45" height="149" opacity="1" rx="15" ry="15" stroke="#365572" stroke-width="1.1" width="330" x="1215" y="887"/>
+  <rect fill="#183B57" height="50" opacity="1" rx="11" ry="11" stroke="none" stroke-width="1" width="50" x="1231" y="905"/>
+  <path d="M1256 916.0 L1260.1176470588234 925.8823529411765 L1270.0 930 L1260.1176470588234 934.1176470588235 L1256 944.0 L1251.8823529411766 934.1176470588235 L1242.0 930 L1251.8823529411766 925.8823529411765 Z" fill="none" stroke="#FFAD42" stroke-linejoin="round" stroke-width="2.2"/>
+  <circle cx="1268.3529411764705" cy="920.1176470588235" fill="#FFAD42" r="1.976470588235294" stroke="none" stroke-width="1"/>
+  <text fill="#F3F8FC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="800" x="1297" y="930">Groq inference</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" x="1297" y="961">Structured JSON responses</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" x="1297" y="982">openai/gpt-oss-20b</text>
+  <rect fill="#102B45" height="149" opacity="1" rx="15" ry="15" stroke="#365572" stroke-width="1.1" width="330" x="1596" y="887"/>
+  <rect fill="#183B57" height="50" opacity="1" rx="11" ry="11" stroke="none" stroke-width="1" width="50" x="1612" y="905"/>
+  <path d="M1627.1176470588234 916.8235294117648 L1641.1176470588234 916.8235294117648 L1647.7058823529412 923.4117647058823 L1647.7058823529412 944.0 L1627.1176470588234 944.0 Z M1641.1176470588234 916.8235294117648 L1641.1176470588234 923.4117647058823 L1647.7058823529412 923.4117647058823" fill="none" stroke="#6BE3AF" stroke-linejoin="round" stroke-width="2.2"/>
+  <line opacity="1" stroke="#6BE3AF" stroke-linecap="round" stroke-width="2" x1="1632.8823529411766" x2="1641.9411764705883" y1="930.8235294117648" y2="930.8235294117648"/>
+  <line opacity="1" stroke="#6BE3AF" stroke-linecap="round" stroke-width="2" x1="1632.8823529411766" x2="1641.9411764705883" y1="936.5882352941177" y2="936.5882352941177"/>
+  <text fill="#F3F8FC" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="19" font-weight="800" x="1678" y="930">Citation verification</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" x="1678" y="961">Evidence IDs + source excerpts</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" x="1678" y="982">Document-grouped UI output</text>
+  <polyline fill="none" opacity="1" points="402,951 453,951" stroke="#61A5FA" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"/>
+  <polygon fill="#61A5FA" opacity="1" points="453,951 442.0,945.8 442.0,956.2"/>
+  <polyline fill="none" opacity="1" points="783,951 834,951" stroke="#61A5FA" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"/>
+  <polygon fill="#61A5FA" opacity="1" points="834,951 823.0,945.8 823.0,956.2"/>
+  <polyline fill="none" opacity="1" points="1164,951 1215,951" stroke="#61A5FA" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"/>
+  <polygon fill="#61A5FA" opacity="1" points="1215,951 1204.0,945.8 1204.0,956.2"/>
+  <polyline fill="none" opacity="1" points="1545,951 1596,951" stroke="#61A5FA" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.8"/>
+  <polygon fill="#61A5FA" opacity="1" points="1596,951 1585.0,945.8 1585.0,956.2"/>
+  <polyline fill="none" opacity="1" points="650,735 650,860 590,860 590,887" stroke="#6BE3AF" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/>
+  <polygon fill="#6BE3AF" opacity="1" points="590,887 595.2,876.0 584.8,876.0"/>
+  <rect fill="#162F44" height="29" opacity="1" rx="14" ry="14" stroke="#C4A2FF" stroke-width="1" width="315" x="255" y="1077"/>
+  <text fill="#C4A2FF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="800" letter-spacing="0.9" text-anchor="middle" x="412.5" y="1097">BACKEND ENFORCED ACCESS</text>
+  <rect fill="#162F44" height="29" opacity="1" rx="14" ry="14" stroke="#6BE3AF" stroke-width="1" width="360" x="637" y="1077"/>
+  <text fill="#6BE3AF" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="800" letter-spacing="0.9" text-anchor="middle" x="817.0" y="1097">EXACT SOURCE-EXCERPT CHECKS</text>
+  <rect fill="#162F44" height="29" opacity="1" rx="14" ry="14" stroke="#FFAD42" stroke-width="1" width="270" x="1067" y="1077"/>
+  <text fill="#FFAD42" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="800" letter-spacing="0.9" text-anchor="middle" x="1202.0" y="1097">GROQ STRUCTURED JSON</text>
+  <rect fill="#162F44" height="29" opacity="1" rx="14" ry="14" stroke="#61A5FA" stroke-width="1" width="330" x="1397" y="1077"/>
+  <text fill="#61A5FA" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="11" font-weight="800" letter-spacing="0.9" text-anchor="middle" x="1562.0" y="1097">DOCKER / COMPOSE PACKAGING</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="500" x="60" y="1205">IMPLEMENTED: FastAPI • Next.js • SQL ACL • Docling • Boto3 S3 adapter • worker • RRF / reranker • Groq • citations</text>
+  <text fill="#92ABC0" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="13" font-weight="500" text-anchor="end" x="1940" y="1205">ASTERIA STUDIO  /  01</text>
+</svg>

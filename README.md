@@ -6,18 +6,19 @@
 
 ### Enterprise Knowledge Intelligence for Hospitality Design
 
-**A permission-aware, evidence-grounded document intelligence platform for architecture and interior-design workflows.**
+**An evidence-grounded, permission-aware RAG platform for architectural specifications, design approvals, supplier records, and renovation project knowledge.**
 
-Bring architectural specifications, supplier schedules, material approvals, and project decisions into one searchable workspace—without separating an answer from its source evidence.
+Transform fragmented project documents into searchable intelligence, traceable answers, and more confident design and procurement decisions.
 
-[**Explore the architecture**](#system-architecture) · [**See the application workflow**](#application-walkthrough) · [**Review evaluations**](#evaluation--engineering-evidence) · [**Run locally**](#getting-started) · [**Demo script**](docs/DEMO_SCRIPT.md)
+[Architecture](#system-architecture) · [Live workflow](#application-walkthrough) · [Engineering](#engineering-implementation) · [Evaluation](#evaluation--results) · [Setup](#getting-started) · [Technical case study](docs/PORTFOLIO_CASE_STUDY.md)
 
 ![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat-square&logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-API-009688?style=flat-square&logo=fastapi&logoColor=white)
 ![Next.js](https://img.shields.io/badge/Next.js-TypeScript-111827?style=flat-square&logo=nextdotjs&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-pgvector-4169E1?style=flat-square&logo=postgresql&logoColor=white)
-![Groq](https://img.shields.io/badge/Groq-LLM%20inference-F55036?style=flat-square)
-![AWS](https://img.shields.io/badge/AWS-S3%20adapter-FF9900?style=flat-square&logo=amazons3&logoColor=white)
+![Groq](https://img.shields.io/badge/Groq-LLM%20Inference-F55036?style=flat-square)
+![Docker](https://img.shields.io/badge/Docker-Compose-2496ED?style=flat-square&logo=docker&logoColor=white)
+![AWS S3](https://img.shields.io/badge/AWS-S3%20%7C%20Boto3-FF9900?style=flat-square&logo=amazons3&logoColor=white)
 
 </div>
 
@@ -25,240 +26,248 @@ Bring architectural specifications, supplier schedules, material approvals, and 
 
 ## Executive overview
 
-Asteria Studio is an end-to-end **Retrieval-Augmented Generation (RAG)** application designed around a fictional US hospitality architecture and interior-design consultancy. Its teams need to make project decisions using a mix of DOCX approval memos, PDF registers, XLSX supplier schedules, and renovation briefs. The right answer depends on **which project**, **which source version**, and **which team member is allowed to see it**.
+**Asteria Studio** is an enterprise-oriented document intelligence application built around a hospitality architecture and interior-design consultancy. Project teams work across architectural briefs, material approval memoranda, fire-documentation registers, and supplier schedules. The information they need is spread across PDF, DOCX, and XLSX files, and access requirements vary between design, project management, and procurement.
 
-The implementation connects document ingestion and structured source metadata to **PostgreSQL full-text search, pgvector semantic search, reciprocal rank fusion (RRF), cross-encoder reranking, and Groq-generated answers with verified source excerpts**. A Next.js workspace exposes document management, natural-language questions, and a citation audit trail. Access predicates are applied to retrieval **before** evidence reaches the LLM.
+The platform brings these records into a unified workspace, combining **Docling-based document ingestion**, **PostgreSQL full-text search**, **pgvector semantic retrieval**, **reciprocal rank fusion**, **cross-encoder reranking**, and **Groq-powered structured answer generation**. A backend citation-verification step attaches supporting source excerpts to generated responses, while tenant and document-grant predicates constrain retrieval before information reaches the LLM.
 
-**Engineering emphasis:** source provenance · tenant/role-aware retrieval · deterministic test surfaces · retrieval benchmarking · local-first reproducibility · optional Amazon S3 storage.
+The result is more than conversational document search: it is a complete **document-to-decision pipeline** with persistent ingestion, controlled retrieval, explainable evidence, testable interfaces, and a business-focused Next.js experience.
 
-### At a glance
-
-| Capability | Implementation |
+| Engineering capability | Implementation |
 |---|---|
-| **Document ingestion** | PDF/DOCX via Docling; XLSX via OpenPyXL; background ingestion worker; persistent document status |
-| **Search** | PostgreSQL full-text + 384-dimensional local sentence embeddings in pgvector |
-| **Ranking** | Reciprocal rank fusion followed by cross-encoder reranking |
-| **Answering** | Groq-hosted `openai/gpt-oss-20b`, structured response contract, checked source excerpts |
-| **Access scope** | Tenant isolation, document-role grants, admin-only upload/permission management in the local demo |
-| **Storage** | Local filesystem by default; Boto3-backed private S3 object storage available as an option |
-| **Delivery** | FastAPI, Next.js/TypeScript, Alembic migrations, Dockerfiles/Compose, pytest and GitHub Actions workflows |
+| **Multi-format document intelligence** | PDF/DOCX extraction with Docling; structured XLSX extraction with OpenPyXL; source-aware chunking |
+| **Hybrid search** | PostgreSQL lexical search + 384-dimensional pgvector embeddings; RRF and cross-encoder reranking |
+| **Evidence-grounded Q&A** | Groq LLM, structured JSON responses, source excerpt verification, inspectable citations |
+| **Permission-aware knowledge access** | Tenant scoping and role/document grants enforced within backend retrieval |
+| **Document lifecycle** | SHA-256 duplicate checks, persistent processing states, separate ingestion worker |
+| **AWS integration** | Boto3-based Amazon S3 document-storage adapter and configurable storage selection |
+| **Engineering delivery** | FastAPI, Next.js, Alembic, Docker Compose, GitHub Actions, pytest, reproducible evaluation scripts |
 
-## Business context
+## Business problem and users
 
-### The problem
+### The scenario
 
-Consider a team renovating guest rooms at **Solstice Grand Resort**. The studio must compare an approved upholstery specification with supplier quotations and a fire-document register. A designer wants to know which material is approved and what checks remain outstanding; procurement needs the price and lead time; a project manager needs to understand whether the specification can be released for ordering.
+During the guestroom renovation at **Solstice Grand Resort**, the design team must determine which upholstery is approved, which supplier submitted the selected material, what supporting documentation is required, and which decisions must be completed before procurement can release the order.
 
-These facts are spread across file formats and departments. A plain keyword search does not synthesize the evidence. A general LLM prompt cannot guarantee which documents were consulted, and a single shared chat history is the wrong access boundary for restricted commercial records.
+These answers are distributed across material approvals, project briefs, PDF registers, and commercial spreadsheets. Reviewing each file manually creates avoidable coordination work, especially when a project has many revisions and contributors.
 
-### Target users and decisions
+Asteria Studio provides a single, permission-aware knowledge interface for these decisions.
 
-| User | Typical decision | Information scope in the demo |
+| Role | Example question | Value provided |
 |---|---|---|
-| **Studio administrator** | Upload specifications, assign permitted roles, review project files | Tenant-wide document administration |
-| **Interior designer** | Confirm approved materials, finishes, and conditions | Design-authorized documents |
-| **Procurement specialist** | Compare supplier bids, prices, and lead times | Procurement-authorized documents |
-| **Project manager** | Identify unresolved approval dependencies and project actions | Project-authorized documents |
-| **Separate tenant** | Work within another fictional firm's records | Its own tenant only |
+| **Interior Designer** | Which upholstery is approved, and what design conditions remain? | Locate the selected material and inspect the exact approval language |
+| **Project Manager** | What could delay the guestroom renovation? | Consolidate action items and approval dependencies from project documents |
+| **Procurement Manager** | What are the quoted material cost and delivery lead time? | Retrieve commercial details from authorized supplier records |
+| **Studio Administrator** | Which records are indexed, and how are they shared? | Manage the document library and permitted access scope |
 
-The included hospitality samples are synthetic, allowing the workflow and access boundaries to be reproduced without relying on confidential project material.
-
-## Application capabilities
-
-- **Document library:** upload PDF, DOCX, and XLSX files; validate supported formats and size; detect duplicates by SHA-256; monitor queued/processing/ready/failed states.
-- **Structured ingestion:** parse documents, create source-aware chunks, embed locally, and index them for lexical and vector retrieval.
-- **Permission-aware discovery:** apply tenant and document-grant filters in both retrieval branches rather than filtering an already-retrieved set inside the UI.
-- **Hybrid search:** recover exact project IDs and SKU terms through lexical search while also retrieving semantically related passages; fuse and rerank candidate lists.
-- **Grounded knowledge assistant:** produce concise project answers with inspectable document names, source locations, and verified supporting excerpts; abstain when evidence cannot support a response.
-- **Role demonstration:** switch between fictional studio roles to inspect how identical queries behave under different document grants.
-- **Pluggable original-file storage:** preserve local references and optionally store newly uploaded original files in private S3 using Boto3, with a temporary local copy during parsing.
+The repository includes a reproducible synthetic hospitality document set for the application walkthrough and evaluation.
 
 ## Application walkthrough
 
-> **Video:** [3–5 minute presentation storyboard](docs/DEMO_SCRIPT.md) · **Recording:** add the published video URL here after recording.
->
-> **Screenshots:** capture the running application using the guide in [`docs/assets/screenshots/README.md`](docs/assets/screenshots/README.md). The image paths below are intentionally reserved rather than filled with fabricated UI images.
+The interface is organized around two working areas: a **Document Library** for ingestion and a **Knowledge Assistant** for project-specific search and answers.
 
-| Scene | What viewers see | What it proves |
+| Scene | Application interaction | Engineering capability |
 |---|---|---|
-| **01 · Document Library** | Studio Administrator uploads a synthetic renovation brief and watches it reach **Ready** | Upload validation, persistent queue, parsing, embedding and indexing |
-| **02 · Project question** | “What could delay the guestroom seating renovation at Solstice Grand Resort?” | Cross-section retrieval and a business-relevant answer |
-| **03 · Source audit** | The user expands the grouped source document to inspect its verified supporting excerpts | Provenance, traceability and human review |
-| **04 · Access comparison** | Interior Designer cannot retrieve restricted supplier prices; Procurement Specialist receives a quoted price and lead time | Backend document-grant and tenant-filtered retrieval |
+| **01 — Manage documents** | Studio Administrator uploads a renovation brief and observes its transition to **Ready** | Validation → queue → parsing → embedding → indexing |
+| **02 — Ask a project question** | “What could delay the guestroom seating renovation, and what must be checked before ordering?” | Permission-filtered hybrid retrieval and answer generation |
+| **03 — Audit the answer** | Expand one document card to inspect the five supporting excerpts | Source-aware chunking and backend citation verification |
+| **04 — Compare access scopes** | Ask for supplier prices as Interior Designer and Procurement Manager | Tenant/document-grant enforcement before LLM context construction |
 
-**Observed local demo:** the renovation-brief answer cited five verified excerpts from one source document; a procurement query returned **USD 145/yard** and a **21-day quoted lead time** for `UPH-FR-220`, while the designer view did not disclose that restricted quotation. These are scenario observations, not benchmark accuracy scores.
+### Example: evidence-backed renovation decision
 
-<!-- Once captured, uncomment and commit real application screenshots:
-![Document library](docs/assets/screenshots/document-library.png)
-![Knowledge assistant and grouped citations](docs/assets/screenshots/knowledge-answer.png)
-![Role-based access comparison](docs/assets/screenshots/role-comparison.png)
+In the demonstrated workflow, Asteria Studio identifies the **UPH-FR-220** upholstery specification from **Northstar Contract Textiles** and highlights the required final SKU, sample approval, documentation, and procurement release checks. Its answer links back to the source document sections. The procurement view can additionally retrieve a **USD 145/yard quoted price** and a **21-day lead time** from the supplier schedule.
+
+**Demo:** [3–5 minute presentation script](docs/DEMO_SCRIPT.md) · [Technical portfolio case study](docs/PORTFOLIO_CASE_STUDY.md)
+
+<!-- Add genuine screenshots captured from the running Next.js application and then enable these lines.
+![Asteria Studio — Document Library](docs/screenshots/document-library.png)
+![Asteria Studio — Knowledge Assistant and grouped source citations](docs/screenshots/knowledge-assistant.png)
+![Asteria Studio — Permission-aware document access](docs/screenshots/role-access.png)
 -->
 
 ## System architecture
 
-### A. Implemented system — local-first with optional S3
+### 1. Implemented system architecture
 
-<p align="center">
-  <img src="docs/assets/architecture-implemented.svg" width="100%" alt="Implemented Asteria system: Next.js, FastAPI, local or S3 storage, worker ingestion, PostgreSQL pgvector, hybrid retrieval, reranking and Groq answers" />
-</p>
+<img src="docs/architecture/implemented-system.svg" width="100%" alt="Asteria Studio implemented architecture showing Next.js, FastAPI, document processing, Amazon S3 adapter, PostgreSQL/pgvector, hybrid RAG, Groq, and citation verification" />
 
-[Editable Mermaid diagram](docs/diagrams/implemented-architecture.mmd) · [Full architecture notes](docs/ARCHITECTURE.md)
+The application separates its responsibilities into three key flows:
 
-The implemented system separates **interactive requests**, **durable ingestion**, **indexed data**, and **answer generation**. The storage interface supports local files and S3 without changing the document parser or search stack.
+- **Experience and API:** Next.js provides document management, role-context selection, knowledge search, and grouped evidence cards. The server-side gateway forwards requests to FastAPI.
+- **Document intelligence:** FastAPI validates and registers files; the worker parses, chunks, embeds, and indexes documents, preserving project and source metadata throughout processing.
+- **Knowledge retrieval and generation:** scoped keyword and vector searches feed RRF and reranking; Groq synthesizes an answer from authorized evidence; the backend validates citation references and text before the frontend displays the result.
 
-#### Ingestion: from an uploaded file to a searchable record
+### 2. End-to-end RAG workflow
 
-1. **Upload and validate.** FastAPI checks file type/size, deduplicates using a document hash, records tenant and role grants, and creates a queued document record.
-2. **Persist the original.** A storage adapter writes the bytes to local disk by default, or to a tenant-prefixed private S3 object when enabled.
-3. **Claim work durably.** The Python worker claims queued database records using row locking; status changes survive an API process restart.
-4. **Extract and chunk.** Docling processes DOCX/PDF; OpenPyXL extracts spreadsheet cells and row-range metadata. Source coordinates are retained for auditability.
-5. **Embed and index.** Sentence Transformers generates 384-dimensional vectors stored alongside chunks in PostgreSQL/pgvector. SQL text indexes support lexical retrieval.
+<img src="docs/architecture/rag-workflow.svg" width="100%" alt="Asteria document ingestion, hybrid retrieval, reranking, and grounded answer workflow" />
 
-#### Query: from a question to cited evidence
+**Ingestion path**
 
-1. Next.js sends a question through its server-side API gateway to FastAPI.
-2. The backend resolves the selected **local demo principal** and applies tenant/role predicates to eligible documents in SQL.
-3. Keyword and vector retrieval generate candidate passages; **RRF** merges the ranks; a **cross-encoder** reranks them.
-4. Authorized evidence and the question are passed to a Groq-hosted LLM with a structured response contract.
-5. The backend checks citation evidence references and source quotations before returning the answer. The frontend groups multiple excerpts under their source document.
+1. **Upload:** FastAPI validates supported file types and sizes, calculates a document fingerprint, stores document metadata, and assigns its access scope.
+2. **Store:** The storage service persists the original document through its configured provider, including **Amazon S3 via Boto3**.
+3. **Process:** A Python worker claims queued database records; Docling extracts PDF/DOCX content and OpenPyXL processes XLSX data.
+4. **Structure:** Extracted content is chunked with source references such as filename, document section, sheet, and cell range.
+5. **Index:** Sentence Transformers generates embeddings; PostgreSQL stores text, metadata, access grants, and pgvector embeddings.
 
-> **Trust boundary:** The role selector is an intentional *local identity simulator* used to exercise real backend document-grant logic. Production login/token verification is shown only in the reference design below.
+**Knowledge-query path**
 
-### B. Production reference architecture — proposed AWS deployment
+1. FastAPI receives a question and determines the request's permitted document scope.
+2. **Lexical search** matches precise terms such as project IDs, material codes, and supplier names.
+3. **Vector search** finds semantically related passages. Both retrieval branches respect database access predicates.
+4. **Reciprocal Rank Fusion** merges ranked candidates; a **cross-encoder** reranks the selected evidence.
+5. Groq generates an answer from the retrieved context under a structured output contract.
+6. Backend citation checks resolve the evidence to its source. Next.js groups multiple supporting excerpts under each document.
 
-<p align="center">
-  <img src="docs/assets/architecture-aws-reference.svg" width="100%" alt="Proposed AWS architecture: CloudFront, ECS Fargate, ECR, API Gateway, internal load balancer, RDS PostgreSQL, private S3 and CloudWatch" />
-</p>
+### 3. Enterprise AWS production reference architecture
 
-[Editable Mermaid diagram](docs/diagrams/aws-reference-architecture.mmd)
+<img src="docs/architecture/aws-production-reference.svg" width="100%" alt="Asteria Studio AWS production reference with S3, ECS Fargate, ECR, RDS PostgreSQL, API Gateway, Cognito, CloudWatch and private networking" />
 
-This is a **deployment design**, not a description of deployed cloud infrastructure. Its purpose is to show where the existing components would run and which operating capabilities would be supplied by managed AWS services.
+This **production reference design** maps the application services to managed cloud capabilities while retaining the existing FastAPI, Next.js, worker, and RAG architecture.
 
-| Reference component | Responsibility |
+| AWS service | Architecture responsibility |
 |---|---|
-| **CloudFront / public ALB** | HTTPS entry and delivery path for container-hosted Next.js |
-| **ECS Fargate** | Independently run the Next.js web service, FastAPI API, and ingestion worker |
-| **ECR** | Store versioned application container images |
-| **API Gateway + VPC Link + internal ALB** | Controlled ingress into private API containers |
-| **RDS PostgreSQL + pgvector** | Persist metadata, permissions, chunks, keyword and vector indexes |
-| **Private S3 bucket** | Persist original documents; the Boto3 storage adapter is included in the current code |
-| **Secrets Manager / IAM task roles** | Managed credentials and narrowly scoped service permissions |
-| **CloudWatch** | Centralized container logs, operational metrics, and alerting |
-| **Enterprise OIDC / Cognito** | Verified user identity feeding the existing authorization model |
+| **Amazon S3** | Document-object storage accessed by the Boto3 integration |
+| **Amazon ECR** | Versioned Docker image registry for application services |
+| **Amazon ECS on Fargate** | Independently operated frontend, API, and ingestion-worker workloads |
+| **Amazon RDS for PostgreSQL** | Managed relational persistence with pgvector-compatible indexing strategy |
+| **Amazon API Gateway + VPC Link / internal ALB** | API ingress and private container-service integration |
+| **Amazon Cognito / enterprise OIDC** | Verified identity claims mapped to tenant and role authorization |
+| **IAM + AWS Secrets Manager** | Least-privilege service permissions and managed secrets |
+| **Amazon CloudWatch** | Centralized logs, operational metrics, alerting, and application diagnostics |
+| **Amazon CloudFront / application load balancer** | HTTPS web entry and delivery path |
 
-**Current implementation boundary:** Boto3 integration and container build definitions are in the repository; a successful live S3 round-trip, full Compose deployment, and AWS infrastructure provisioning are separate verification/deployment steps.
+The **implemented application architecture** above documents the executable code. The **AWS production reference** documents the intended managed-service deployment topology. Both diagrams are supplied as editable SVGs with PNG exports and a Python diagram-rendering source in [`docs/architecture/`](docs/architecture/).
 
-## Engineering decisions
+## Engineering implementation
 
-| Decision | Why it exists | Engineering consequence |
-|---|---|---|
-| **PostgreSQL + pgvector** | Keep metadata, permission joins, full-text indexes and vector similarity within a single transactional data layer | Fewer moving services for a local-first demo; SQL predicates protect the retrieval boundary |
-| **Lexical + vector retrieval** | Project codes, SKU IDs and exact numbers coexist with natural-language questions | Both exact-term and semantic retrieval are available; actual effectiveness is measured separately |
-| **RRF + cross-encoder** | Combine rankings without requiring comparable score scales, then improve passage ordering | Higher compute/latency than keyword-only search; not assumed superior in every corpus |
-| **Database-backed worker** | Document parsing and embedding are heavier than a web request | Durable queued/processing/ready/failed states and independent worker execution |
-| **Source-aware chunks** | Answers need auditable evidence, including spreadsheet locations | The UI can expose document names, sections, sheets and cell ranges |
-| **Backend citation checking** | Model-formatted quotations may drift from retrieved text | Rejects unsupported citation references/quotes; does not substitute for human semantic faithfulness review |
-| **Authorization before LLM** | Restricted supplier records must not enter a model prompt for unauthorized roles | Tenant and document grants constrain both lexical and vector search branches |
-| **Local storage + S3 adapter** | Preserve an offline development path while demonstrating a realistic external storage integration | No S3 requirement for local execution; AWS credentials remain server-side |
+### Source-aware document ingestion
+
+The document pipeline is built for heterogeneous project records rather than uniform plain text. Docling extracts layout-aware PDF and DOCX content, while spreadsheet extraction retains sheet/cell context so a retrieved supplier quote can be traced to its original table. A database-backed worker manages processing state separately from the HTTP request lifecycle.
+
+**Design rationale:** preserve provenance through extraction and make expensive parsing and embeddings independently executable and retryable.
+
+### Hybrid retrieval and reranking
+
+- **PostgreSQL full-text search** supports exact-match queries for technical identifiers and contract terminology.
+- **Sentence Transformer embeddings and pgvector** support semantic queries such as “What needs approval before we can order?”
+- **RRF** combines rankings from both retrieval strategies without assuming their raw relevance scores are comparable.
+- **Cross-encoder reranking** scores the final candidate passages against the full question.
+
+**Design rationale:** architecture and procurement documents mix machine-like identifiers with human-written requirements; both retrieval modes are useful, and evaluation determines their relative value for each corpus.
+
+### Grounded generation and citation audit
+
+Groq provides structured LLM inference. The application preserves evidence IDs and source locations, checks citation excerpts against retrieved chunks, and returns document-level provenance to the interface. The frontend presents concise source cards with expandable quotations rather than repeating a full document card for every excerpt.
+
+**Design rationale:** users must be able to inspect the project records behind a design or procurement recommendation. Literal quotation verification is combined with separately evaluated answer quality.
+
+### Permissions and security boundaries
+
+Tenant IDs and document-role grants constrain retrieval inside the backend and database, so a role's inaccessible supplier documents are excluded before building the LLM context. The application also treats retrieved document content as untrusted input and includes prompt-injection/security test cases and a PII-redaction utility.
+
+The demo role selector exercises this authorization logic with predefined principals. The AWS reference diagram includes an enterprise OIDC/Cognito identity layer for an organization-wide deployment.
+
+### AWS document storage
+
+`backend/app/services/object_storage.py` supplies a Boto3-based S3 adapter with tenant-scoped object keys. Document ingestion references the stored original and materializes it for parsing when needed. Credentials remain in server-side configuration and use the standard AWS credential chain. The storage provider is selected through environment configuration, keeping the document-processing and retrieval code independent of the object-storage service.
+
+### Packaging, CI, and evaluation
+
+- **Docker/Compose:** defined containers for PostgreSQL, FastAPI, the ingestion worker, and Next.js, with a Compose overlay for the complete application.
+- **GitHub Actions:** workflows for Python tests, frontend type/build checks, S3 adapter unit tests, and container builds.
+- **PostgreSQL migrations:** Alembic versions preserve schema evolution for document metadata, chunks, and grants.
+- **LLMOps/evaluation:** committed question sets, comparison baselines, timing measurements, answer contract checks, and access-security scenarios.
 
 ## Technology stack
 
-| Layer | Technologies |
+| Responsibility | Technologies |
 |---|---|
-| **Frontend and gateway** | Next.js 16 / React / TypeScript / Lucide UI components |
-| **Backend API** | Python 3.12, FastAPI, Pydantic, SQLAlchemy |
-| **Document processing** | Docling, OpenPyXL, Python ingestion worker |
-| **Embeddings and reranking** | Sentence Transformers `all-MiniLM-L6-v2`, `ms-marco-MiniLM-L-6-v2` cross-encoder |
-| **Search and persistence** | PostgreSQL 17, pgvector, SQL full-text search, RRF |
-| **LLM** | Groq API, `openai/gpt-oss-20b`, JSON-structured answer handling |
-| **Storage** | Local filesystem, optional Amazon S3 via Boto3 |
-| **Packaging** | Conda, Alembic, Docker, Docker Compose |
-| **Testing / evaluation** | pytest, retrieval/answer/security evaluation scripts, GitHub Actions |
+| **Application experience** | Next.js 16, React, TypeScript, Lucide |
+| **API and service layer** | Python 3.12, Conda, FastAPI, Pydantic, SQLAlchemy |
+| **Document processing** | Docling, OpenPyXL, Python worker |
+| **Embedding and semantic search** | Sentence Transformers (`all-MiniLM-L6-v2`), pgvector |
+| **Lexical retrieval and fusion** | PostgreSQL full-text search, reciprocal rank fusion |
+| **Evidence reranking** | Cross-encoder (`ms-marco-MiniLM-L-6-v2`) |
+| **LLM inference** | Groq API, `openai/gpt-oss-20b`, structured JSON output |
+| **Object storage integration** | Amazon S3, Boto3, configurable storage adapter |
+| **Persistence and schema** | PostgreSQL 17, Alembic |
+| **Delivery and quality** | Docker, Docker Compose, GitHub Actions, pytest, evaluation scripts |
 
-## Evaluation & engineering evidence
+## Evaluation & results
 
-The repository includes evaluation cases, scripts, per-case results and methodological notes in [`backend/evaluation/`](backend/evaluation/) and [`docs/EVALUATION.md`](docs/EVALUATION.md). **The retrieval benchmark was run on three indexed synthetic documents and 15 queries (12 answerable, 3 access/empty-result probes), before the later additional demo document.** Results are document-level at `K=5`.
+The repository contains the test cases, scoring scripts, and original JSON/Markdown reports in [`backend/evaluation/`](backend/evaluation/) and [`docs/EVALUATION.md`](docs/EVALUATION.md). The retrieval benchmark uses **15 synthetic test queries**, including **12 answerable questions** and **three access/no-result probes**, against the original **three-document indexed corpus**. It reports document-level relevance at `K=5`.
 
-### Retrieval quality and latency
+### Retrieval benchmark
 
-| Strategy | Document Recall@5 | MRR@5 | Warm p50 | Warm p95 |
+| Retrieval approach | Document Recall@5 | MRR@5 | Warm p50 latency | Warm p95 latency |
 |---|---:|---:|---:|---:|
-| **Keyword (PostgreSQL full-text)** | 1.000 | **0.889** | **3.6 ms** | 22.5 ms |
-| **Vector (pgvector)** | 1.000 | 0.635 | 10.8 ms | 12.9 ms |
-| **Hybrid + RRF + rerank** | 1.000 | 0.833 | 115.4 ms | 265.1 ms |
+| PostgreSQL full-text | 1.000 | **0.889** | **3.6 ms** | 22.5 ms |
+| pgvector semantic | 1.000 | 0.635 | 10.8 ms | 12.9 ms |
+| Hybrid + RRF + reranking | 1.000 | 0.833 | 115.4 ms | 265.1 ms |
 
-**Interpretation:** All methods retrieved a relevant document within five positions in this tiny corpus. Hybrid retrieval did **not** outperform keyword search on MRR in this pilot; the ranking/latency trade-off is part of the engineering evaluation, not hidden by the architecture diagram.
+The retrieval experiment separates **coverage**, **ranking quality**, and **latency**. All three approaches reached the relevant document within five results in this small corpus. The keyword baseline achieved the highest observed MRR@5, while hybrid reranking had higher retrieval latency—a useful trade-off to quantify before optimizing a larger production collection.
 
-### Answer generation and access checks
+### Answer, security, and regression checks
 
-| Signal | Observed outcome | Scope |
+| Evaluation signal | Recorded result | Evaluation scope |
 |---|---|---|
-| **Automated answer rules** | **10 / 15 passed (66.67%)** | Original three-document B3 pilot; includes one API error |
-| **Full answer API latency** | p50 **3.867 s**, p95 **16.689 s** | Original B3 run, model/provider dependent |
-| **Forbidden source exposures** | **0 observed** | Tested pilot queries and simulated identity scopes |
-| **Backend regression suite** | **37 passed, 1 skipped** | Latest reported local run, including four S3 adapter tests |
-| **Manual claim-level faithfulness** | Not yet scored | Requires reviewer judgments beyond exact-quote matching |
+| Automated answer contract checks | **10 / 15** | Original answer-quality pilot |
+| Unauthorized source exposures | **0 observed** | Tested role/tenant scenarios |
+| Full answer API latency | p50 **3.867 s** · p95 **16.689 s** | Original B3 pilot |
+| Backend regression suite | **37 passed, 1 skipped** | Latest recorded backend run |
+| S3 adapter tests | **4 passed** | Mocked adapter/storage tests |
 
-The answer-quality pilot exposed citation-format mismatches and intermittent provider timeouts. Later interactive demo questions produced successful cited answers, but those observations do not replace a full rerun of the answer benchmark. See [evaluation details](docs/EVALUATION.md) and the [raw retrieval](backend/evaluation/results/retrieval_pilot.json) / [answer](backend/evaluation/results/answer_quality_pilot.json) reports.
+The automated answer checks evaluate response status, citations, access rules, and other contract requirements; they are **not a claim-level faithfulness score**. Evaluation cases, outputs, and scoring methods remain available for independent review and extension.
 
-### Reproduce the checks
+### Reproduce the evaluation
 
-From an activated backend environment:
+From `backend/` in the configured Conda environment:
 
 ```cmd
-cd backend
 python -m pytest -q
 python -m pytest -q tests\test_s3_storage_adapter.py
-```
-
-With PostgreSQL running, the sample documents indexed and the required model resources available:
-
-```cmd
 python scripts\evaluate_retrieval.py
 python scripts\evaluate_security.py
 python scripts\evaluate_answers.py
 ```
 
-The answer evaluation calls Groq; account access and provider availability affect execution. Scripts write pilot JSON/Markdown results under `backend/evaluation/results/`.
+The retrieval and answer benchmarks require the configured database, indexed sample documents, and relevant model/provider access. For methodology and report interpretation, see [`docs/EVALUATION.md`](docs/EVALUATION.md).
 
 ## Getting started
 
 ### Prerequisites
 
-- Windows 10/11 with **Conda**, Python 3.12 and Node.js 24 (the project has been tested with this local setup).
-- Docker Desktop for the PostgreSQL/pgvector database.
-- Groq API credentials for answer generation; retrieval can be evaluated independently.
-- Optional: an authorized private S3 bucket and Boto3 credentials for live storage tests.
+- Python 3.12 and Conda
+- Node.js 24 with npm
+- Docker Desktop for PostgreSQL/pgvector and optional full-container execution
+- Groq API key for knowledge-answer generation
+- AWS credentials and a private S3 bucket when using Amazon S3 storage
 
-### 1 · Clone and configure the backend
+### 1. Clone the repository and create the environment
 
 ```cmd
-git clone https://github.com/YOUR_USERNAME/enterprise-knowledge-intelligence.git
+git clone https://github.com/Thathsarani-Sandarekha/enterprise-knowledge-intelligence.git
 cd enterprise-knowledge-intelligence
 conda create -n docmind_env python=3.12 -y
 conda activate docmind_env
 cd backend
 python -m pip install -r requirements.txt
-python -m pip install -r requirements.txt
 ```
 
-Create **`backend/.env`** with your own values (do not commit this file):
+Create `backend/.env` using the configuration below, substituting your own credential values:
 
 ```dotenv
 APP_MODE=local
-DEV_API_KEY=replace_with_a_long_random_local_value
+DEV_API_KEY=replace_with_private_development_key
 DATABASE_URL=postgresql+psycopg://eki:local_only_password@localhost:5433/eki
 GROQ_API_KEY=your_groq_api_key
 GROQ_MODEL=openai/gpt-oss-20b
-STORAGE_BACKEND=local
 EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+STORAGE_BACKEND=local
 ```
 
-The requirements files are maintained under `backend/`; if you consolidate dependency manifests, update the commands, Dockerfile and CI workflows together.
+### 2. Start PostgreSQL and apply migrations
 
-### 2 · Start the database and apply migrations
-
-From the project root:
+From the `backend/` directory:
 
 ```cmd
 cd ..
@@ -267,15 +276,16 @@ cd backend
 python -m alembic upgrade head
 ```
 
-### 3 · Start the API and ingestion worker
+### 3. Start the API, ingestion worker, and frontend
 
-**Terminal A — API** (inside `backend`, with Conda active):
+**Terminal A — FastAPI** (from `backend/`):
 
 ```cmd
+conda activate docmind_env
 python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
 
-**Terminal B — worker** (new terminal):
+**Terminal B — worker** (from the repository root):
 
 ```cmd
 conda activate docmind_env
@@ -283,35 +293,40 @@ cd backend
 python -m app.worker
 ```
 
-Open `http://127.0.0.1:8000/health` for health status or `http://127.0.0.1:8000/docs` for interactive FastAPI documentation.
-
-### 4 · Start the frontend
-
-**Terminal C** (from the project root):
+**Terminal C — Next.js** (from the repository root):
 
 ```cmd
 cd frontend
 npm ci
 ```
 
-Create **`frontend/.env.local`** with the same local development key:
+Create `frontend/.env.local`:
 
 ```dotenv
 BACKEND_API_URL=http://127.0.0.1:8000
-DEV_API_KEY=replace_with_a_long_random_local_value
+DEV_API_KEY=replace_with_private_development_key
 ```
 
-Then run:
+Then launch:
 
 ```cmd
 npm run dev
 ```
 
-Visit **http://localhost:3000**. Select **Studio Administrator**, upload the files under [`samples/hospitality/`](samples/hospitality/), and verify each document reaches **Ready**. The role selector can then demonstrate access-scoped answers.
+Open **http://localhost:3000** for the application or **http://127.0.0.1:8000/docs** for interactive FastAPI documentation. Select *Studio Administrator* to upload hospitality example documents from [`samples/hospitality/`](samples/hospitality/).
 
-### Optional · Amazon S3 original-document storage
+### Amazon S3 configuration
 
-Keep local storage for offline development. To use S3 for **new** documents, set `STORAGE_BACKEND=s3`, `AWS_S3_BUCKET`, `AWS_REGION`, and `S3_KEY_PREFIX` in `backend/.env`. Provide AWS credentials through the standard Boto3 credential chain (such as an AWS profile). The worker uses temporary local files to pass S3 originals to Docling.
+Set `STORAGE_BACKEND=s3` together with the configured bucket and region in `backend/.env`. Boto3 resolves permissions through its supported AWS credential providers.
+
+```dotenv
+STORAGE_BACKEND=s3
+AWS_REGION=us-east-1
+AWS_S3_BUCKET=your-private-bucket-name
+S3_KEY_PREFIX=hospitality-documents
+```
+
+Validate the storage adapter with the committed tests and optional bucket smoke script:
 
 ```cmd
 cd backend
@@ -319,11 +334,11 @@ python -m pytest -q tests\test_s3_storage_adapter.py
 python -m scripts.s3_storage_smoke
 ```
 
-The second command performs a real bucket round-trip and requires AWS access; follow [`docs/S3_SETUP.md`](docs/S3_SETUP.md) before running it. Returning to `STORAGE_BACKEND=local` leaves existing S3 references readable if bucket access remains configured.
+See [`docs/S3_SETUP.md`](docs/S3_SETUP.md) for configuration details.
 
-### Optional · Full Docker Compose profile
+### Docker Compose
 
-The base [`docker-compose.yml`](docker-compose.yml) runs PostgreSQL. The overlay adds the API, frontend, and worker:
+The base Compose file starts PostgreSQL. The demo overlay defines the application services:
 
 ```cmd
 docker compose -f docker-compose.yml -f compose.demo.yml config --quiet
@@ -331,91 +346,98 @@ docker compose -f docker-compose.yml -f compose.demo.yml up --build -d
 docker compose -f docker-compose.yml -f compose.demo.yml ps
 ```
 
-Ensure `backend/.env` and `frontend/.env.local` are configured first. Local Docker image pulls previously experienced registry TLS timeouts, so a complete end-to-end container run should be checked before describing the Compose stack as verified.
+### Developer checks
+
+```cmd
+cd backend
+python -m pytest -q
+cd ..\frontend
+npm run typecheck
+npm run build
+```
 
 ## API overview
 
-The frontend talks through a server-side gateway at `/api/gateway/[...path]`. The backend exposes versioned routes:
+The Next.js server gateway forwards application traffic to versioned FastAPI endpoints.
 
-| Method | Endpoint | Purpose |
+| Method | Endpoint | Engineering responsibility |
 |---|---|---|
-| `GET` | `/health` | Health check |
-| `POST` | `/api/v1/documents` | Upload and queue a validated document (demo admin) |
-| `GET` | `/api/v1/documents` | List accessible documents |
-| `GET` | `/api/v1/documents/{id}` | Read authorized document metadata |
-| `PUT` | `/api/v1/documents/{id}/permissions` | Update document grants (demo admin) |
-| `POST` | `/api/v1/knowledge/search` | Retrieve permission-filtered, reranked evidence |
-| `POST` | `/api/v1/knowledge/ask` | Answer with source citations |
-| `POST` | `/api/v1/search/vector` | Vector-only diagnostic search |
+| `GET` | `/health` | API health check |
+| `POST` | `/api/v1/documents` | Validate, store, and enqueue an uploaded document |
+| `GET` | `/api/v1/documents` | List accessible document records |
+| `GET` | `/api/v1/documents/{id}` | Retrieve authorized document metadata |
+| `PUT` | `/api/v1/documents/{id}/permissions` | Update document grants |
+| `POST` | `/api/v1/knowledge/search` | Permission-scoped hybrid search and reranking |
+| `POST` | `/api/v1/knowledge/ask` | Structured answer generation with source citations |
+| `POST` | `/api/v1/search/vector` | Vector retrieval endpoint |
 
-Example request body for `/api/v1/knowledge/ask`:
+Example knowledge request:
 
 ```json
 {
-  "question": "Which upholstery is approved for Solstice Grand Resort and what checks remain before ordering?",
+  "question": "What could delay the guestroom seating renovation at Solstice Grand Resort?",
   "project_code": "SGR-2025",
   "top_k": 5
 }
 ```
 
-In local mode, direct backend requests require `x-api-key` and the selected `x-demo-user`. The Next.js gateway keeps the development key server-side. These simulator headers are a development interface; real deployment would resolve principals from verified identity claims.
+For development requests, the API uses the configured development key and demo principal headers; the Next.js server-side gateway supplies the key for UI requests.
 
 ## Repository structure
 
 ```text
 enterprise-knowledge-intelligence/
-├── .github/workflows/          # Unit, frontend-build and container-build workflows
+├── README.md
+├── .github/workflows/              # Backend, frontend, S3 and Docker checks
 ├── backend/
 │   ├── app/
-│   │   ├── routes/             # Documents, search, knowledge and principal endpoints
-│   │   ├── services/           # Extraction, storage, retrieval, ranking, citation checking
-│   │   └── worker.py           # Database-queued ingestion worker
-│   ├── evaluation/             # Query sets, scoring code and curated pilot results
-│   ├── migrations/             # Alembic document and grant schema
-│   ├── scripts/                # Evaluation, smoke and S3 scripts
-│   ├── tests/                  # Automated regression, access and storage tests
+│   │   ├── routes/                 # Document, principal, search and knowledge APIs
+│   │   ├── services/               # Extraction, storage, retrieval, ranking, security, answers
+│   │   └── worker.py               # Background ingestion worker
+│   ├── migrations/                 # Alembic schema migrations
+│   ├── evaluation/                 # Evaluation datasets, metrics and selected reports
+│   ├── scripts/                    # Evaluation and smoke-test commands
+│   ├── tests/                      # API, access-control, RAG and storage tests
+│   ├── requirements.txt
 │   └── Dockerfile
 ├── frontend/
-│   ├── app/                    # Next.js routes and server-side API gateway
-│   ├── components/             # Search/chat and document management
-│   └── Dockerfile
+│   ├── app/                        # Next.js pages and API gateway
+│   ├── components/                 # Document library and knowledge assistant
+│   └── package.json
 ├── docs/
-│   ├── assets/                 # Architecture SVGs and screenshot folder
-│   ├── diagrams/               # Editable Mermaid diagram source
-│   ├── ARCHITECTURE.md
+│   ├── architecture/               # SVG/PNG diagrams + editable renderer
 │   ├── EVALUATION.md
 │   ├── PORTFOLIO_CASE_STUDY.md
 │   └── DEMO_SCRIPT.md
-├── samples/hospitality/        # Synthetic DOCX/PDF/XLSX source material
-├── docker-compose.yml          # Local PostgreSQL
-└── compose.demo.yml            # API + worker + frontend overlay
+├── samples/hospitality/            # Reproducible project documents
+├── docker-compose.yml
+└── compose.demo.yml
 ```
 
-## Delivery, testing and operational readiness
+## Engineering challenges & next iterations
 
-The repository includes [`ci.yml`](.github/workflows/ci.yml), [`s3-storage-tests.yml`](.github/workflows/s3-storage-tests.yml), and [`container-build.yml`](.github/workflows/container-build.yml) for backend checks, frontend type/build validation, mocked S3 adapter tests and Docker image builds on GitHub-hosted runners. Their presence is distinct from a confirmed successful remote Actions run.
+| Engineering challenge | Solution or extension |
+|---|---|
+| **Evidence attribution** | Preserve source locators and validate source quotations; expand claim-level semantic review with a larger test set |
+| **Retrieval trade-offs** | Benchmark lexical/vector/hybrid methods and tune reranking depth against latency and document diversity |
+| **Access-aware RAG** | Enforce backend document scope and map verified enterprise user claims into the same authorization model |
+| **Document lifecycle reliability** | Use persistent worker states, validation and deduplication; extend operational metrics and recovery scenarios |
+| **Cloud scaling** | Package independent frontend/API/worker services for ECS and use managed AWS observability/storage/persistence patterns |
 
-This is an **inference-oriented LLM application**, not a model-training pipeline. The ML/LLM engineering workflow here is document processing, retrieval/reranking, evaluation, model-call handling, testing and repeatable packaging—not a claimed MLflow experiment-tracking or scheduled retraining system.
+## Project resources
 
-**Engineering boundaries and next improvements**
-
-1. **Verified identity:** integrate OIDC/SSO and map signed user claims to tenant/document permissions instead of local role selection.
-2. **Grounding evaluation:** add reviewer-graded claim faithfulness and citation support, plus a larger document benchmark and regression gate for known failure cases.
-3. **Answer reliability:** reduce unnecessary abstentions and handle model response/citation formatting and timeouts without weakening evidence checks.
-4. **Operations:** validate full Compose execution and the live S3 path; add structured metrics, alerting and cloud infrastructure only as deployment needs arise.
-
-## Technical case study and demo
-
-- [**Portfolio case study**](docs/PORTFOLIO_CASE_STUDY.md) — problem framing, architecture choices and engineering trade-offs.
-- [**Implementation and AWS reference architecture**](docs/ARCHITECTURE.md) — detailed component boundaries and cloud mapping.
-- [**Evaluation report**](docs/EVALUATION.md) — methodology, per-pilot results and interpretation.
-- [**Demo script**](docs/DEMO_SCRIPT.md) — business problem → working application → evidence trail → permissions → architecture → measured results.
+- [Architecture and workflow visuals](docs/architecture/)
+- [Evaluation methodology and results](docs/EVALUATION.md)
+- [3–5 minute demo script](docs/DEMO_SCRIPT.md)
+- [Technical case study](docs/PORTFOLIO_CASE_STUDY.md)
+- [S3 configuration guide](docs/S3_SETUP.md)
 
 ---
 
 <div align="center">
 
-**ASTERIA / STUDIO**  
+**ASTERIA / STUDIO**
+
 *Design knowledge, connected to its evidence.*
 
 </div>
