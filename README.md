@@ -397,16 +397,6 @@ enterprise-knowledge-intelligence/
 - **Deployment operations:** Extend the AWS deployment design with infrastructure-as-code, automated health checks, operational dashboards, and documented release procedures.
 - **Performance:** Benchmark larger document collections and additional concurrent queries, then tune worker capacity and retrieval latency.
 
-## More information
-
-- [Technical architecture notes](docs/ARCHITECTURE.md)
-- [Evaluation methodology](docs/EVALUATION.md)
-- [Business case study](docs/PORTFOLIO_CASE_STUDY.md)
-- [Demo narration](docs/DEMO_SCRIPT.md)
-- [S3 setup](docs/S3_SETUP.md)
-
----
-
 <div align="center">
 
 **Asteria Studio** · Document intelligence · Permission-aware hybrid RAG · Source-verifiable answers
