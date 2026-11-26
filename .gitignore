@@ -58,7 +58,6 @@ Thumbs.db
 
 /scripts
 /samples
-/backend/evaluation
-/backend/tests
+/backend/evaluation/
 /backend/scripts
 
