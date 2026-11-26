@@ -55,3 +55,10 @@ backend/evaluation/results/*
 .idea/
 .DS_Store
 Thumbs.db
+
+/scripts
+/samples
+/backend/evaluation
+/backend/tests
+/backend/scripts
+
