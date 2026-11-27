@@ -152,13 +152,22 @@ Open a cited result to inspect its document name, source location, and verified 
 
 ### Video walkthroughs
 
-Three complementary demonstrations accompany the project:
+Explore Asteria Studio through three demonstration videos covering the working application, technical architecture, and key AI engineering capabilities.
 
-- **Working application demo:** Document management, project questions, citations, and permission differences.
-- **Technical architecture walkthrough:** Ingestion, hybrid RAG, security decisions, and the AWS deployment architecture.
-- **60-second teaser:** A quick introduction to the application and its key features.
+### 1. Full Application Demo
+See document ingestion, RAG-powered question answering, verified citations, and role-based document access.
 
-<!-- Add published video links here when the recordings are available. -->
+🎥 [Watch Application Demo](YOUTUBE_LINK)
+
+### 2. Technical Architecture Walkthrough
+Explore FastAPI, Docling, PostgreSQL/pgvector, hybrid retrieval, RRF, cross-encoder reranking, Groq, and the AWS deployment architecture.
+
+🎥 [Watch Architecture Walkthrough](YOUTUBE_LINK)
+
+### 3. Project Overview — 60-Second Demo
+A quick introduction to the business problem, AI solution, and key capabilities.
+
+🎥 [Watch 60-Second Demo](YOUTUBE_SHORTS_LINK)
 
 ## Engineering decisions
 
