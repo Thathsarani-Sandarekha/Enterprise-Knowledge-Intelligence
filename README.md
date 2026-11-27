@@ -157,17 +157,17 @@ Explore Asteria Studio through three demonstration videos covering the working a
 ### 1. Full Application Demo
 See document ingestion, RAG-powered question answering, verified citations, and role-based document access.
 
-🎥 [Watch Application Demo](YOUTUBE_LINK)
+🎥 [Watch Application Demo](https://youtu.be/th4t8k4uSfw)
 
 ### 2. Technical Architecture Walkthrough
 Explore FastAPI, Docling, PostgreSQL/pgvector, hybrid retrieval, RRF, cross-encoder reranking, Groq, and the AWS deployment architecture.
 
-🎥 [Watch Architecture Walkthrough](YOUTUBE_LINK)
+🎥 [Watch Architecture Walkthrough](https://youtu.be/_XJaBFRYcAU)
 
 ### 3. Project Overview — 60-Second Demo
 A quick introduction to the business problem, AI solution, and key capabilities.
 
-🎥 [Watch 60-Second Demo](YOUTUBE_SHORTS_LINK)
+🎥 [Watch 60-Second Demo](https://youtube.com/shorts/opvkbiffYOQ?feature=share)
 
 ## Engineering decisions
 
