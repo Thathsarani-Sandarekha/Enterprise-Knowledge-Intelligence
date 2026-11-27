@@ -398,14 +398,6 @@ enterprise-knowledge-intelligence/
 └── README.md
 ```
 
-## Engineering trade-offs and next steps
-
-- **Retrieval relevance:** Expand the evaluation corpus and analyze failures separately for keyword, semantic, and reranked results.
-- **Answer reliability:** Improve citation-generation consistency and add a larger human-reviewed grounding set.
-- **Authentication:** Connect the existing backend permission system to verified organizational identities for enterprise use.
-- **Deployment operations:** Extend the AWS deployment design with infrastructure-as-code, automated health checks, operational dashboards, and documented release procedures.
-- **Performance:** Benchmark larger document collections and additional concurrent queries, then tune worker capacity and retrieval latency.
-
 <div align="center">
 
 **Asteria Studio** · Document intelligence · Permission-aware hybrid RAG · Source-verifiable answers
